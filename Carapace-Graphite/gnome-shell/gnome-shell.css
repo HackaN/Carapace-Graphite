@@ -1,0 +1,3684 @@
+/* Copyright 2009, 2015 Red Hat, Inc.
+ *
+ * Portions adapted from Mx's data/style/default.css
+ *   Copyright 2009 Intel Corporation
+ *
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms and conditions of the GNU Lesser General Public License,
+ * version 2.1, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St - Fifth Floor, Boston, MA 02110-1301 USA.
+ */
+
+ /* ******
+ Theme by HackaN ( hackan301@gmail.com )
+ ****** */
+
+stage {
+  font-family: Lato, NimbusSans, Cantarell; /* NimbusSans, Futura Bk bt, Estrangelo, Bitstream, Cantarell, Sans-Serif*/
+  font-size: 9pt;
+  color: #eee;
+ }
+
+ /* ::: knappar generellt ::: */
+ /* FIXME:
+.button styr också action-knapparna för t ex monterade enheter i notification-banner
+  */
+ .button {
+   min-height: 20px;
+   padding: 5px 32px;
+   transition-duration: 100ms;
+   border-radius: 2px;
+   box-shadow: 0 1px 5px rgba(0,0,0,.8);
+   font-weight: bold;
+  }
+
+  .openweather-button-box .system-menu-action {
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,.8);
+  }
+  .openweather-button-box .system-menu-action:hover {
+    background-color: rgb(145,145,145);
+    border: 1px solid rgb(145,145,145);
+    icon-shadow: 0 0 5px black;
+    text-shadow: 0 1px 2px rgba(0,0,0,.8);
+    box-shadow: 0 2px 10px black;
+  }
+  .openweather-button-box .system-menu-action StLabel {
+    text-shadow: 0 1px 2px rgba(0,0,0,.8);
+    color: red;
+  }
+  /* FIXME: (8)
+  gör provider lite mörkare... Dessutom, iom att det är en länk, så får den lite dekoration vid :hover
+
+  Försökte göra panel-ikonen ljusare men det går inte. Du kan ändra färg men den är alltid lite dimmad... vet inte varför. Kollat i css:en till extension men hittar inget speciellt där.
+
+  Det går att fuska till det lite halv-fult med en ikon-skugga på .5px. Lägger den bland de andra ikoninställningarna ".panel-button .system-status-icon.openweather-icon"
+   */
+  .openweather-button-box .openweather-provider {
+    color: rgba(255,255,255,.4);
+    font-weight: 400;
+  }
+  .openweather-button-box .openweather-provider:hover {
+    background: none;
+    text-decoration: underline;
+    color: rgba(255,255,255,.9);
+  }
+  .openweather-button-box .system-menu-action:active {
+   background-color: rgb(140,140,140);
+   border: 1px solid rgb(140,140,140);
+   icon-shadow: 0 0 5px black;
+   box-shadow: 0 0 5px black;
+  }
+  .openweather-button-box .system-menu-action:last-child:hover {
+   background-color: rgb(145,145,145);
+   border: 1px solid rgb(145,145,145);
+   icon-shadow: 0 0 5px black;
+   text-shadow: 0 1px 2px rgba(0,0,0,.8);
+   box-shadow: 0 2px 10px black;
+  }
+  .openweather-button-box .system-menu-action:last-child:active {
+   background-color: rgb(140,140,140);
+   border: 1px solid rgb(140,140,140);
+   icon-shadow: 0 0 5px black;
+   box-shadow: 0 0 5px black;
+  }
+
+  /* ::: Skrivfält ::: */
+  StEntry { /*hackan: här finns lösenordspunkter, meddelanden etc*/
+    padding: 7px;
+    caret-size: 1px;
+    caret-color: #eee;
+    selection-background-color: rgb(145,145,145);
+    selected-color: #fff;
+    transition-duration: 300ms;
+    border-radius: 3px;
+    color: #eee;
+    background-color: rgba(45,50,55,0);
+    font-weight: 400;
+    /* gör samma som dash sök */
+    border: 1px solid #eee;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    box-shadow: none;
+   }
+    StEntry:hover {
+      color: rgb(250,250,250);
+      caret-color: rgb(250,250,250);
+      background-color: rgba(45,50,55,0);
+      border: 1px solid rgb(145,145,145);
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    StEntry:focus {
+      color: rgb(255,255,255);
+      caret-color: rgb(255,255,255);
+      background-color: rgba(45,50,55,0);
+      border: 1px solid rgb(175,175,175);
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    StEntry:insensitive {
+      color: #999;
+      background-color: rgba(45,50,55,0);
+      border: 1px solid #999;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    StEntry StIcon.capslock-warning {
+      icon-size: 16px;
+      color: rgb(154,154,154);
+      warning-color: rgb(154,154,154);
+      padding: 0 4px;
+    }
+
+    /* ::: scrollvyer  ::: */
+/*
+Om du vill kunna scrolla automatiskt när man stegar med piltangenter så kan offest inte vara mer än 0px
+*/
+    StScrollView.vfade {
+      -st-vfade-offset: 0px;
+     }
+
+    StScrollView.hfade {
+      -st-hfade-offset: 0px; }
+
+    StScrollBar {
+      padding: 8px; }
+      StScrollView StScrollBar {
+        min-width: 5px;
+        min-height: 5px; }
+      StScrollBar StBin#trough {
+        background-color: rgba(11,19,33,.95);
+        border: .5px solid rgba(240,240,240,.2);
+        border-radius: 2px;
+        box-shadow: inset 0 0 2px rgba(0,0,0,.5);
+
+       }
+      StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
+        border-radius: 2px;
+        background-color: rgba(220,220,220,.85);
+        border: 0px solid;
+        margin: 0px;
+        box-shadow: 0 0 5px rgba(0,0,0,1);
+       }
+        StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
+          background-color: rgba(145,145,145,.9) }
+        StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
+          background-color: rgba(175,175,175,.9); }
+
+    .slider { /* Volym & Skärmljus panelmeny */
+      -slider-height: 2px;
+      -slider-background-color: rgb(11,19,33);
+      -slider-border-color: rgba(240,240,240,0);
+      -slider-active-background-color: rgb(178,178,178);
+      -slider-active-border-color: rgba(240,240,240,0);
+      -slider-border-width: 1px;
+      -slider-handle-radius: 0px;
+
+              /* sådär ja, gick till /usr/share/gnome-shell/theme/gnome-classics.css för att luska reda på vad de nya elementaen hette */
+
+      -barlevel-background-color: rgb(11,19,33);
+      -barlevel-border-color: rgba(240,240,240,0);
+      -barlevel-active-background-color:  rgb(178,178,178);
+      -barlevel-active-border-color: rgba(240,240,240,0);
+      -barlevel-overdrive-color: rgba(255,155,55,.9);
+      -barlevel-overdrive-border-color: rgba(0,0,0,.5);
+
+      height: 18px;
+      border: 0 solid transparent;
+      border-right-width: 1px;
+      border-left-width: 5px;
+      color: transparent; }
+      .popup-menu-item.selected .slider {
+        -slider-background-color: rgb(11,19,33) !important;
+        -slider-active-background-color: rgb(178,178,178) !important;
+      }
+
+      /*::: annat, kör på stegvis för att se vad som segar ner transitions ::: */
+      .check-box StBoxLayout {
+        spacing: .8em; }
+
+      .check-box StBin {
+        width: 16px;
+        height: 16px;
+        background-image: url("dark-assets/checkbox/checkbox-unchecked.svg"); }
+
+      .check-box:focus StBin {
+        background-image: url("dark-assets/checkbox/checkbox-unchecked-focused.svg"); }
+
+      .check-box:checked StBin {
+        background-image: url("dark-assets/checkbox/checkbox-checked.svg"); }
+
+      .check-box:focus:checked StBin {
+        background-image: url("dark-assets/checkbox/checkbox-checked-focused.svg"); }
+
+        .toggle-switch,
+        .popup-menu-item.selected .toggle-switch {
+          width: 50px;
+          height: 20px;
+          margin-left: 10px;
+          /*
+          border: 1px solid rgba(170,170,170,.0);
+          border-radius: 10px;
+          background: rgb(11,19,33);
+          box-shadow: inset 0 -1px 1px rgba(170,170,170,.3);
+          */
+          background-image: url("common-assets/switch/toggle-slim-blank-off.svg");
+        }
+          .toggle-switch:checked,
+          .popup-menu-item.selected .toggle-switch:checked {
+      /*
+            background: rgb(175,175,175);
+            box-shadow: 0 0 5px rgba(0,0,0,.6);
+            */
+            background-image: url("common-assets/switch/toggle-slim-blank-on.svg");
+          }
+
+      .shell-link {
+        color: #a9caf1; }
+        .shell-link:hover {
+          color: #d5e5f8; }
+
+      .headline {
+        font-size: 110%; }
+
+      .lightbox {
+        background-color: black; }
+
+      .flashspot {
+        background-color: white; }
+/* FIXME:
+justerar lite bakgrundsopacitet etc
+ */
+        /* ::: modal dialoger ::: */
+        .modal-dialog {
+          color: #eee !important;
+          text-shadow: 0 0 3px rgba(0,0,0,1);
+          background-color: rgba(45,50,55,.9);
+          border: .5px solid rgba(0,0,0,1);
+          box-shadow: 0 2px 10px rgba(0,0,0,.8);
+          border-radius: 6px;
+          padding: 0 5px 6px 5px;
+        }
+        /* samlar knapaprna nedan
+
+        .modal-dialog-button {
+          background: rgb(178,178,178);
+          border: 1px solid rgba(0,0,0,.8);
+          border-radius: 3px;
+          color: #222;
+        }
+        .modal-dialog-button:hover {
+          background: rgb(145,145,145);
+          color: white;
+        }
+        .modal-dialog-button:active {
+          background: rgb(140,140,140);
+          color: white;
+          box-shadow: 0 0 5px rgba(0,0,0,.3);
+        }*/
+        .modal-dialog StIcon {
+          color: #eee;
+          icon-shadow: 0 0 5px rgba(0,0,0,1);
+        }
+        /* .nm-dialog för nätverk */
+        /* FIXME: (11)
+        Gör utseendet för knappar lite mer som i överblicken. Grupperade och med rundade hörn för första och sista knappen
+
+        grupperar alla knapparna här under. Finns en extra inställning för Stäng av (.end-session-dialog .modal-dialog-linked-button:last-child) med fet text.
+
+         */
+          .modal-dialog .modal-dialog-content-box {
+            padding: 20px 10px 10px 10px; }
+
+          .modal-dialog-linked-button,
+          .notification-banner .notification-button,
+          .modal-dialog-button,
+          .end-session-dialog .modal-dialog-linked-button,
+          .notification-banner .button { /*standard-knappar, det finns även child-inställningar att justera*/
+            height: 28px; /*38*/
+            padding: 0;
+            margin: 0px;
+            background-gradient-start: rgba(185,190,195,1);
+            background-gradient-end: rgba(180,185,190,1);
+            background-gradient-direction: vertical;
+            border: .5px solid rgba(0,0,0,1);
+            border-radius: 0px;
+            /*box-shadow: 0 0 5px rgba(0,0,0,.3);*/
+            font-weight: 400;
+            font-size: 1.1em;
+            color: #222;
+            text-shadow: 0 1px 1px rgba(255,255,255,.35);
+            box-shadow: none;
+          }
+          /* FIXME:
+          extrainställning för monterings-knappar
+           */
+          .notification-banner .button,
+          .notification-banner .button StIcon {
+            border-radius: 4px;
+            icon-shadow: 0 0 3px rgba(0,0,0,1);
+          }
+            .modal-dialog-linked-button:hover,
+            .notification-banner .notification-button:hover,
+            .modal-dialog-button:hover,
+            .end-session-dialog .modal-dialog-linked-button:hover,
+            .notification-banner .button:hover {
+              background-gradient-start: rgba(215,220,225,1);
+              background-gradient-end: rgba(210,215,220,1);
+             }
+            .modal-dialog-linked-button:focus,
+            .notification-banner .notification-button:focus,
+            .modal-dialog-button:focus,
+            .end-session-dialog .modal-dialog-linked-button:focus,
+            .notification-banner .button:focus {
+              background-gradient-start: rgba(205,210,215,1);
+              background-gradient-end: rgba(200,205,210,1);
+            }
+            .modal-dialog-linked-button:focus:hover,
+            .notification-banner .notification-button:focus:hover,
+            .modal-dialog-button:focus:hover,
+            .end-session-dialog .modal-dialog-linked-button:focus:hover,
+            .notification-banner .button:focus:hover {
+              background-gradient-start: rgba(215,220,225,1);
+              background-gradient-end: rgba(210,215,220,1);
+             }
+            .modal-dialog-linked-button:active,
+            .notification-banner .notification-button:active,
+            .modal-dialog-button:active,
+            .end-session-dialog .modal-dialog-linked-button:active,
+            .notification-banner .button:active {
+              background-gradient-start: rgba(135,140,145,.95);
+              background-gradient-end: rgba(140,145,150,.95);
+              color: white;
+              text-shadow: 0 0 3px rgba(0,0,0,.95);
+            }
+            .modal-dialog-linked-button:focus:active,
+            .notification-banner .notification-button:focus:active,
+            .modal-dialog-button:focus:active,
+            .end-session-dialog .modal-dialog-linked-button:focus:active,
+            .notification-banner .button:focus:active {
+              background-gradient-start: rgba(135,140,145,.95);
+              background-gradient-end: rgba(140,145,150,.95);
+              color: white;
+              text-shadow: 0 0 3px rgba(0,0,0,.95);
+            }
+            .modal-dialog-linked-button:insensitive,
+            .modal-dialog-button:insensitive,
+            .notification-banner .button:insensitive {
+              text-shadow: 0 0 1px rgba(200,200,200,0);
+              color: rgba(200,200,200,.35);
+              border: .5px solid rgba(0,0,0,.4);
+              background-gradient-start: rgba(140,145,150,.55);
+              background-gradient-end: rgba(140,145,150,.55);
+           }
+            .modal-dialog-linked-button:first-child,
+            .notification-banner .notification-button:first-child,
+            .modal-dialog-button:first-child {
+              border-radius: 4px 0 0 4px;
+        }
+            .modal-dialog-linked-button:first-child:active {
+            }
+            .modal-dialog-linked-button:last-child,
+            .notification-banner .notification-button:last-child,
+            .modal-dialog-button:last-child {
+              border-radius: 0 4px 4px 0;
+         }
+            .modal-dialog-linked-button:last-child:hover {
+        }
+            .modal-dialog-linked-button:last-child:active {
+            }
+            .modal-dialog-linked-button:last-child:insensitive {
+
+            }
+
+            /* ** linked-default är för ex låsa upp inställningar ** Lägger även hit default för end-session-dialog */
+
+         .modal-dialog-linked-button:default,
+         .modal-dialog-button:default,
+         .end-session-dialog .modal-dialog-linked-button:default {
+           background-gradient-start: rgba(205,210,215,1);
+           background-gradient-end: rgba(200,205,210,1);
+           font-weight: bold;
+         }
+         .modal-dialog-linked-button:default:hover,
+         .modal-dialog-button:default:hover,
+         .end-session-dialog .modal-dialog-linked-button:default:hover {
+           background-gradient-start: rgba(215,220,225,1);
+           background-gradient-end: rgba(210,215,220,1);
+         }
+         .modal-dialog-linked-button:default:active,
+         .modal-dialog-button:default:active {
+           background-gradient-start: rgba(135,140,145,.95);
+           background-gradient-end: rgba(140,145,150,.95);
+           color: white;
+         }
+         .modal-dialog-linked-button:default:insensitive,
+         .modal-dialog-button:default:insensitive {
+           text-shadow: 0 0 1px rgba(200,200,200,0);
+           color: rgba(200,200,200,.35);
+           border: .5px solid rgba(0,0,0,.4);
+           background-gradient-start: rgba(140,145,150,.55);
+           background-gradient-end: rgba(140,145,150,.55);
+         }
+         /* buntsr ihop default ovan
+
+         .modal-dialog-button:default {
+           font-weight: bold;
+           background-gradient-start: rgba(220,225,230,1);
+           background-gradient-start: rgba(185,190,195,1);
+         }
+         .modal-dialog-button:default:hover {
+
+         }
+         .modal-dialog-button:default:active {
+
+         }
+         .modal-dialog-button:default:insensitive {
+
+         }*/
+
+          .modal-dialog .run-dialog-entry {
+            width: 21em;
+            color: rgb(210,215,220);
+            text-shadow: 0 0 3px black;
+            font-size: 1.2em;
+         }
+          .modal-dialog .run-dialog-error-box {
+            padding-top: 5px;
+            spacing: 5px; }
+          .modal-dialog .run-dialog-label {
+            font-size: 0;
+          }
+
+/* ::: end session grejer ::: */
+
+.show-processes-dialog-subject,
+.mount-question-dialog-subject,
+.end-session-dialog-subject {
+  font-size: 11pt;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0px 0px 5px rgba(82,82,32,.3); }
+
+.end-session-dialog { /*hackan: starta om stäng av*/
+  spacing: 42px; }
+  .end-session-dialog-list {
+    padding-top: 20px; }
+  .end-session-dialog-layout {
+    padding-left: 17px; }
+    .end-session-dialog-layout:rtl {
+      padding-right: 17px; }
+  .end-session-dialog-description {
+    width: 28em;
+    padding-bottom: 10px; }
+    .end-session-dialog-description:rtl {
+      text-align: right; }
+  .end-session-dialog-warning {
+    width: 28em;
+    color: #eee !important;
+    padding-top: 6px; }
+    .end-session-dialog-warning:rtl {
+      text-align: right;
+      color: #eee !important;
+     }
+  .end-session-dialog-logout-icon {
+    border: 0px solid transparent;
+    color: rgb(178,178,178);
+    border-radius: 2px;
+    width: 48px;
+    height: 48px;
+    background-size: contain; }
+  .end-session-dialog-shutdown-icon {
+    color: rgb(178,178,178) !important; /* kör Attention-färg för man kan göra fler saker*/
+    width: 48px;
+    height: 48px;
+  }
+  .end-session-dialog-inhibitor-layout {
+    spacing: 16px;
+    max-height: 200px;
+    padding-right: 10px;
+    padding-left: 10px; }
+  .end-session-dialog-session-list, .end-session-dialog-app-list {
+    spacing: 1em; }
+  .end-session-dialog-list-header {
+    font-weight: bold; }
+    .end-session-dialog-list-header:rtl {
+      text-align: right; }
+  .end-session-dialog-app-list-item, .end-session-dialog-session-list-item {
+    spacing: 1em; }
+  .end-session-dialog-app-list-item-name, .end-session-dialog-session-list-item-name {
+    font-weight: bold; }
+  .end-session-dialog-app-list-item-description {
+    color: #eee;
+    font-size: 8pt; }
+/* mitten-knappen (pga first/last -child) "Starta om" *//*
+    .end-session-dialog .modal-dialog-linked-button:hover {
+      background-color: rgb(178,178,178);
+      color: #222;
+      border: 1px solid rgba(0,0,0,.8);
+    }
+    .end-session-dialog .modal-dialog-linked-button:active {
+      background-color: rgb(210,200,30);
+      color: #222;
+      border: 1px solid rgba(0,0,0,.8);
+    }
+    .end-session-dialog .modal-dialog-linked-button:focus {
+    }
+    .end-session-dialog .modal-dialog-linked-button:focus:hover {
+      background-color: rgb(178,178,178);
+      color: #222;
+      border: 1px solid rgba(0,0,0,.8);
+    }
+    .end-session-dialog .modal-dialog-linked-button:focus:active {
+      background-color: rgb(210,200,30);
+      color: #222;
+      border: 1px solid rgba(0,0,0,.8);
+    }
+
+    .end-session-dialog .modal-dialog-linked-button:default {
+      background-color: rgba(175,175,175,.95);
+      color: #222;
+      border: 1px solid rgba(0,0,0,.8);
+    }*/
+    /* default:hover skrivs över av knapparnas egna inställningar */
+    .end-session-dialog .modal-dialog-linked-button:default:hover {
+
+    }
+    /* första knappen "Avbryt" */
+    .end-session-dialog .modal-dialog-linked-button:first-child:hover {
+
+       }
+    .end-session-dialog .modal-dialog-linked-button:first-child:active {
+
+          }
+    .end-session-dialog .modal-dialog-linked-button:first-child:focus:hover {
+
+          }
+    .end-session-dialog .modal-dialog-linked-button:first-child:focus:active {
+
+                }
+    /* sista knappen (är default, så ingen style på neutral) "Stäng av" */
+    .end-session-dialog .modal-dialog-linked-button:last-child {
+      font-weight: bold;
+    }
+    .end-session-dialog .modal-dialog-linked-button:last-child:hover {
+
+         }
+    .end-session-dialog .modal-dialog-linked-button:last-child:active {
+
+            }
+
+      .end-session-dialog .modal-dialog-linked-button:last-child:active {
+      }
+
+      /* ::: show process dialog ::: */
+      .shell-mount-operation-icon {
+        icon-size: 48px; }
+
+      .show-processes-dialog,
+      .mount-question-dialog {
+        spacing: 24px; }
+
+      .show-processes-dialog-subject,
+      .mount-question-dialog-subject {
+        padding-top: 10px;
+        padding-left: 17px;
+        padding-bottom: 6px;
+      }
+        .show-processes-dialog-subject:rtl,
+        .mount-question-dialog-subject:rtl {
+          padding-left: 0px;
+          padding-right: 17px; }
+
+      .mount-question-dialog-subject {
+        max-width: 500px; }
+
+      .show-processes-dialog-description,
+      .mount-question-dialog-description {
+        padding-left: 17px;
+        width: 28em; }
+        .show-processes-dialog-description:rtl,
+        .mount-question-dialog-description:rtl {
+          padding-right: 17px; }
+
+      .show-processes-dialog-app-list {
+        font-size: 10pt;
+        max-height: 200px;
+        padding-top: 24px;
+        padding-left: 49px;
+        padding-right: 32px; }
+        .show-processes-dialog-app-list:rtl {
+          padding-right: 49px;
+          padding-left: 32px; }
+
+      .show-processes-dialog-app-list-item {
+        color: #b4c0cf; }
+        .show-processes-dialog-app-list-item:hover {
+          color: #D3DAE3; }
+        .show-processes-dialog-app-list-item:ltr {
+          padding-right: 1em; }
+        .show-processes-dialog-app-list-item:rtl {
+          padding-left: 1em; }
+
+      .show-processes-dialog-app-list-item-icon:ltr {
+        padding-right: 17px; }
+
+      .show-processes-dialog-app-list-item-icon:rtl {
+        padding-left: 17px; }
+
+      .show-processes-dialog-app-list-item-name {
+        font-size: 10pt; }
+
+/* ::: promt dialoger ::: */
+.prompt-dialog {
+  width: 500px;
+ }
+  .prompt-dialog-main-layout {
+    spacing: 24px;
+    padding: 10px; }
+  .prompt-dialog-message-layout {
+    spacing: 16px; }
+  .prompt-dialog-headline {
+    font-size: 12pt;
+    font-weight: bold;
+    color: #fff; } /*tex när man ska ansluta till wifi*/
+  .prompt-dialog-descritption:rtl {
+    text-align: right;
+    color: rgb(220,220,220); /* t ex texten "Lösenord" */
+  }
+  .prompt-dialog-password-box {
+    spacing: 1em;
+    padding-bottom: 1em;
+    color: #eee;
+ }
+ .prompt-dialog StIcon {
+   color: rgb(178,178,178);
+   icon-shadow: 0 0 10px black;
+ }
+  .prompt-dialog-error-label {
+    font-size: 9pt;
+    color: #444;
+    padding-bottom: 8px; }
+  .prompt-dialog-info-label {
+    font-size: 9pt;
+    padding-bottom: 8px;
+}
+  .prompt-dialog-null-label {
+    font-size: 9pt;
+    padding-bottom: 8px; }
+
+/* ::: lite andra dialoger ::: */
+.hidden {
+  color: transparent; }
+
+.polkit-dialog-user-layout {
+  padding-left: 10px;
+  spacing: 10px; }
+  .polkit-dialog-user-layout:rtl {
+    padding-left: 0px;
+    padding-right: 10px; }
+
+.polkit-dialog-user-root-label {
+  color: #444; }
+
+.polkit-dialog-user-user-icon {
+  border-radius: 2px;
+  background-size: contain;
+  width: 48px;
+  height: 48px; }
+
+.audio-device-selection-dialog {
+  spacing: 30px; }
+
+.audio-selection-content {
+  spacing: 20px;
+  padding: 24px; }
+
+.audio-selection-title {
+  font-weight: bold;
+  text-align: center; }
+
+.audio-selection-box {
+  spacing: 20px; }
+
+.audio-selection-device {
+  border: 1px solid #8b8e89;
+  border-radius: 3px; }
+  .audio-selection-device:active, .audio-selection-device:hover, .audio-selection-device:focus {
+    background-color: rgb(145,145,145);
+    border-color: rgb(145,145,145); }
+
+.audio-selection-device-box {
+  padding: 20px;
+  spacing: 20px; }
+
+.audio-selection-device-icon {
+  icon-size: 64px; }
+
+.geolocation-dialog {
+  spacing: 30px; }
+  .geolocation-dialog-main-layout {
+    spacing: 12px; }
+  .geolocation-dialog-content {
+    spacing: 20px; }
+  .geolocation-dialog-icon {
+    icon-size: 48px; }
+  .geolocation-dialog-title {
+    font-weight: bold; }
+  .geolocation-dialog-reason {
+    color: #D3DAE3;
+    font-weight: bold; }
+
+.network-dialog-secret-table {
+  spacing-rows: 15px;
+  spacing-columns: 1em; }
+
+.keyring-dialog-control-table {
+  spacing-rows: 15px;
+  spacing-columns: 1em; }
+
+  /* ::: menyer ::: */
+  .popup-menu { /* hackan: menyer */
+    min-width: 15em;
+    font-family: Lato, NimbusSans, Cantarell;
+    border-radius: 6px;
+
+      background-color: rgba(45,50,55,95);
+
+      border: .5px solid rgba(0,0,0,1);
+      box-shadow: 0 0 5px rgba(0,0,0,1);
+      /*background-gradient-start: rgba(35,40,45,.95);
+      background-gradient-end: rgba(45,50,55,1);
+      background-gradient-direction: radial;
+      box-shadow:inset 0 -.5px 1px rgba(0,0,0,1);*/
+      /*border-radius: 6px;*/
+
+  }
+  /* FIXME:
+  lägger till pil på menyer. Dock så funkar inte box-shadow. Fejkar med border.
+
+   */
+  .popup-menu-boxpointer,
+  .candidate-popup-boxpointer {
+  /*  -arrow-border-radius: 6px;
+    -arrow-background-color: rgba(45,50,55,95);
+    -arrow-border-width: 4.5px;
+    -arrow-border-color: rgba(35,40,45,.45);
+    -arrow-base: 24px;
+    -arrow-rise: 8px;
+    -arrow-box-shadow: 0 0 10px rgba(250,0,0,1) !important;*/
+    -arrow-border-radius: 0px;
+    -arrow-background-color: rgba(25,50,55,0);
+    -arrow-border-width: 0px;
+    -arrow-border-color: rgba(35,40,45,.0);
+    -arrow-base: 0px;
+    -arrow-rise: 0px;
+    -arrow-box-shadow: 0 0 10px rgba(250,0,0,0) !important;
+   }
+    .popup-menu .popup-sub-menu {
+          background-color: rgba(45,50,55,.5);
+          padding-left: 12px; /*för att få det att se mer ut som undermenuyer, men det blir lite funky för fönster-förhandvisning i dock:en*/
+          padding-right: 12px; /*för att balansera*/
+          padding-bottom: 7px; /*gör det lite fint i båten*/
+          padding-top: 4px; /*för att balansera*/
+          /*blir ganska bra, gör en rundad menu-hover så att det inte ser konstigt ut i dock:en*/
+          box-shadow: rgba(178,178,178,0) 0px 0px 5px;
+          margin-bottom: 5px;
+       }
+
+
+    .popup-menu .popup-menu-content { /*den här styr meddelanden/kalender samt menyer*/ /*fixed*/
+      color: #ccc; /*färg till kalender rubrik*/
+      padding: 1em 0em 1em 0em;
+    }
+    .popup-menu .popup-menu-item { /*det här är bara menyerna*/
+      padding-bottom: .45em !important;
+      margin: 0;
+      spacing: 0;
+      color: #eee; /*Text till exempelvis titlar i OpenWeather extension, samt menyer, och MConnect*/
+      }
+      .popup-menu .popup-menu-item:ltr {/*.4em 3em .4em 0em : upp höger ner vänster (ltr)*/
+        padding: .2em 3em .2em 0em; /*är bara området kring item, inte marginlen i menyn*/
+      }
+      .popup-menu .popup-menu-item:rtl {
+        padding: .2em 3em .2em 0em;
+      }
+      .popup-menu .popup-menu-item:hover {
+        background: rgba(145,145,145);
+        color: white;
+        text-shadow: 0 1px 2px rgba(0,0,0,.8) !important;
+      }
+      .popup-menu .popup-menu-item:hover .popup-menu-icon,
+      .popup-menu .popup-menu-item:hover .system-switch-user-submenu-icon {
+        color: white !important;
+        icon-shadow: 0 1px 3px rgba(0,0,0,.8) !important;
+        box-shadow: 0 1px 1px rgba(0,0,0,.6) !important;
+      }
+      .popup-menu .popup-menu-item.selected,
+      .popup-menu .popup-menu-item:checked {
+        background: rgb(175,175,175);
+        box-shadow: none;
+        color: #222;
+        text-shadow: 0 1px 1px rgba(250,250,250,.3);
+        border-radius: 0px;
+   }
+    .popup-menu .popup-menu-item:focus {
+   }
+   .popup-menu .popup-menu-item:focus .popup-menu-icon,
+   .popup-menu .popup-menu-item:focus .system-switch-user-submenu-icon {
+     color: rgb(175,175,175);
+     icon-shadow: 0 1px 3px rgba(0,0,0,0);
+     box-shadow: 0 0 2px rgba(175,175,175,1);
+   }
+
+   .popup-menu .popup-menu-item:checked .popup-menu-icon,
+   .popup-menu .popup-menu-item.selected .popup-menu-icon,
+   .popup-menu .popup-menu-item:checked .system-switch-user-submenu-icon,
+   .popup-menu .popup-menu-item.selected .system-switch-user-submenu-icon {
+     color: #222;
+     icon-shadow: 0 1px 1px rgba(250,250,250,.3);
+     box-shadow: 0 1px 1px rgba(250,250,250,.25);
+   }
+
+        .popup-menu .popup-menu-item:checked:hover,
+        .popup-menu .popup-menu-item:focus:hover,
+        .popup-menu .popup-menu-item.selected:hover  {
+          color: #eee;
+          background: rgb(145,145,145);
+        }
+
+      /*.popup-menu .popup-menu-item:active { tycker det är skönare om det inte menyvalen blinkar till. Knappar är en annan femma :-P
+        background-color: rgb(140,140,140);
+      }*/
+
+      /*knappfärger till MConnect*/
+      .popup-menu .popup-sub-menu .system-menu-action:insensitive StIcon {
+        color: rgb(100,100,100);
+      }
+      .popup-menu .popup-sub-menu .system-menu-action:last-child:hover {
+        background-color: rgb(145,145,145);
+        border: 1px solid rgb(145,145,145);
+        icon-shadow: 0 0 5px black;
+        box-shadow: 0 2px 10px black;
+      }
+      .popup-menu .popup-sub-menu .system-menu-action:last-child:active {
+        background-color: rgb(140,140,140);
+        border: 1px solid rgb(140,140,140);
+        icon-shadow: 0 0 5px black;
+        box-shadow: 0 0 5px black;
+      }
+
+      .popup-menu .popup-menu-item:insensitive {
+        color: #999;
+        background: none; }
+    .popup-menu .popup-inactive-menu-item {
+      color: inherit;
+     }
+      .popup-menu .popup-inactive-menu-item:insensitive {
+        color: #999; }
+
+    .popup-menu.panel-menu {
+      -boxpointer-gap: 0px;
+      margin-bottom: 1.75em; }
+
+  .popup-menu-ornament { /*det här är vänster-marginalen i menyer*/
+    text-align: right;
+    margin-left: 10px;
+    width: 16px; }
+
+
+
+  .popup-separator-menu-item {
+    height: 1px;
+    background: rgba(0,0,0,.0);
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    border: 1px solid rgba(255,255,255,.0);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin: 0;
+    margin-right: .45em;
+    padding: 0 !important;
+    padding-bottom: 0 !important;
+    spacing: 0 !important;
+    /*border-image: url("common-assets/menu/menu-separator.svg") 1 1 1 1;*/
+  }
+
+  .background-menu { /* skrivbordsmeny */
+    -boxpointer-gap: 4px;
+    -arrow-rise: 0px;
+    background: rgba(45,50,55,.95);
+    box-shadow: 0 2px 10px rgba(0,0,0,.8) !important;
+  }
+
+  /* ::: OSD fönster ::: */
+  .osd-window {
+    text-align: center;
+    font-weight: bold;
+    spacing: 1em;
+    padding: 20px;
+    margin: 32px;
+    min-width: 64px;
+    min-height: 64px;
+    color: rgb(175,175,175);
+    background: rgba(45,50,55,.95);
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.8);
+    /*border-image: url("common-assets/menu/menu_trans_vit_v2.svg") 9 9 9 9;*/
+    } /*osd.svg*/
+    .osd-window .osd-monitor-label {
+      font-size: 3em; }
+    .osd-window .level {
+      padding: 0;
+      height: 1px;
+      background-color: rgba(11,19,33,0); /*fetare utan spår*/
+      border-radius: 0px;
+      border: 1px solid rgba(175,175,175,0);
+      /*box-shadow:inset 0 0 5px rgba(175,175,175,1);*/
+    }
+      .osd-window .level-bar {
+        background-color: rgb(178,178,178); /*har inte riktigt bestämt mig om 333 eller blå...*/
+        border-radius: 0px;
+      }
+
+  .resize-popup {
+    color: #eee;
+    background: rgba(30,35,250,.95);
+    border: none;
+    border-radius: 3px;
+    /*border-image: url("common-assets/misc/osd.svg") 9 9 9 9;*/
+    padding: 12px;
+    box-shadow: 0 2px 10px (0,0,0,.8);
+  }
+
+  /* FIXME:
+  gör task-switchern ljusare för att stämma överens med överblicken
+
+  provar ficklamp-effekt istället för underlinje.
+
+  gör ofukuserade texter lite mörkare... blir rätt snyggt
+
+   */
+
+  /* ::: Växla Program ::: */
+  .switcher-popup {
+    padding: 0px;
+    spacing: 18px;
+    /*blå mörk dimma*//*
+    background-gradient-start: rgba(15,30,80,.70);
+    background-gradient-end: rgba(10,20,55,.85);
+    *//*överblick färg*//** fet **/
+  /*
+    background-gradient-start: rgba(30,60,130,.65);
+    background-gradient-end: rgba(25,50,110,.8);
+    *//*lite mer röd...*//*nya feta :-D*//*
+    background-gradient-start: rgba(30,50,110,.6);
+    background-gradient-end: rgba(30,40,100,.85);*/
+
+    /*background-gradient-start: rgba(70,75,80,.55);
+    background-gradient-end: rgba(45,50,55,.9);*/
+
+    /*jämnare mörk:::
+    background-gradient-start: rgba(50,55,60,.65);
+    background-gradient-end: rgba(45,50,55,.9);*/
+
+    /* helt jämn ljus:::
+    background-gradient-start: rgba(60,65,70,.6);
+    background-gradient-end: rgba(60,65,70,.95);*/
+
+    /*nästan jämn, lite mörkare uttill::*/
+    background-gradient-start: rgba(60,65,70,.6);
+    background-gradient-end: rgba(55,60,65,.9);
+
+    /* jämnare ljus:::
+    background-gradient-start: rgba(70,75,80,.55);
+    background-gradient-end: rgba(60,65,70,.9);*/
+
+    background-gradient-direction: radial;
+    border: none;
+    border-top: 28px solid rgba(30,35,40,1); /*panel-färg sänkt med 20 på varje*/
+    box-shadow:inset 0 .5px 0 rgba(255,255,255,.25); /*överkant*/
+    /*lodrät*//*
+    background-gradient-start: rgba(15,30,80,.70);
+    background-gradient-end: rgba(10,20,55,1);
+    background-gradient-direction: vertical;
+    *//*eget utrymme*//*
+    background: url("common-assets/switch/switcher-list.jpg");
+    background-size: cover;
+    */
+  font-weight: bold;
+  font-size: 1.2em;
+  text-shadow: 0 0 5px rgba(0,0,0,1);
+   } /*det blir fett snuggt med en inset box-shadow här, men det segar ner switchen för mycket :-( */
+
+  .switcher-list {
+    /* låda */
+    /*background: rgba(45,50,55,.95);
+    border: 1px solid rgba(0,0,0,0);
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(0,0,0,.8);*/
+    /* fria ikoner */
+    background: rgba(45,50,55,0);
+    border: 1px solid rgba(230,220,0,0);
+    border-radius: 3px;
+    box-shadow:inset 0 0 0 rgba(0,0,0,0);
+    /*ställer padding till 6px så att alla ikoner får plats utan att pilarna försvinner */
+    padding: 6px;
+  }
+    .switcher-list-item-container {
+      spacing: 0;
+      background: none;
+      padding: 0px;
+     }
+    .switcher-list .item-box {
+      border-radius: 6px;
+      color: rgba(170,175,185,1);
+      font-weight: 400;
+      text-shadow: 0 0 3px rgba(0,0,0,1);
+      padding-top: 15px;
+      /*
+      Fett! padding-top centrerade ikonen vertikalt OCH löste problem med avbruten text när det blir trångt med ikoner.
+      */
+      border: .5px solid transparent;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      background-gradient-start: rgba(0,0,0,.3);
+      background-gradient-end: rgba(70,75,80,0);
+      background-gradient-direction: radial;
+  }
+
+      .switcher-list .item-box:outlined {
+        background: rgba(215,220,225,1);
+        background-gradient-direction: none;
+        color: #222;
+        text-shadow: 0px 1px 1px rgba(255,255,255,.7);
+        box-shadow: 0 0 20px rgba(0,0,0,.8);
+   }
+      .switcher-list .item-box:selected {
+      color: white;
+      background-gradient-start: rgba(200,200,205,1);
+      background-gradient-end: rgba(255,255,255,.0);
+      background-gradient-direction: radial;
+      border: .5px solid rgba(250,250,250,0);
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-radius: 0px;
+      text-shadow: 0 0 4px rgba(0,0,0,1);
+   }
+   .switcher-list .item-box StIcon {
+     icon-shadow: 0 0 20px rgba(0,0,0,.8);
+   }
+   .switcher-list .item-box:selected StIcon {
+     icon-shadow: 0 0 10px rgba(0,0,0,1);
+   }
+   .switcher-list .item-box:outlined StIcon {
+     icon-shadow: 0 0 10px rgba(0,0,0,1);
+   }
+   /* FIXME:
+   lägger till padding nedan så att breda fönster inte hamnar utanför spotlight
+    */
+    .switcher-list .thumbnail {
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+    .switcher-list .separator {
+      width: 1px;
+      background: rgba(11, 118, 227, .93);
+    }
+  .switcher-arrow {
+    color: rgb(245,250,255);
+   }
+    .switcher-arrow:highlighted {
+      color: rgb(255,255,255);
+    }
+
+  .input-source-switcher-symbol {
+    font-size: 34pt;
+    width: 96px;
+    height: 96px; }
+
+    /* ::: Växla Arbetsytor::: */
+
+    .workspace-switcher { /* växla arbetsyta */
+      background: transparent;
+      border: 0px;
+      border-radius: 0px;
+      padding: 0px;
+      spacing: 8px; }
+      .workspace-switcher-group {
+        padding: 12px; }
+      .workspace-switcher-container {
+        /*-image: url("common-assets/menu/menu_trans_vit_v2.svg") 9 9 9 9;*/ /*misc/bg.svg*/
+        background: rgba(0,0,10,.1);
+        border-radius: 3px;
+        padding: 5px;
+        padding-bottom: 5px;
+        border: none;
+       }
+
+    .ws-switcher-active-up, .ws-switcher-active-down {
+      height: 30px;
+      background-color: rgb(178,178,178);
+      background-size: 96px;
+      border-radius: 2px;
+      border: 1px solid rgba(0,0,0,.5);
+    }
+
+    .ws-switcher-active-up {
+      background-image: url("common-assets/misc/ws-switch-arrow-up.png"); }
+
+    .ws-switcher-active-down {
+      background-image: url("common-assets/misc/ws-switch-arrow-down.png"); }
+
+    .ws-switcher-box {
+      height: 96px;
+      background: rgba(145,145,145,.55);
+      box-shadow:inset 0 0 30px rgba(140,140,140,.75);
+      border-color: rgba(0,0,0,.6);
+      border-radius: 2px;
+     }
+/* FIXME:
+window-tiling, justerar färg.
+ */
+    .tile-preview {
+      background-color: rgba(190,195,200,.65);
+      border: .5px solid rgba(40,45,50,.75);
+      border-radius: 0px;
+
+     }
+      .tile-preview-left.on-primary {
+        border-radius: 0px 0 0 0; }
+      .tile-preview-right.on-primary {
+        border-radius: 0 0px 0 0; }
+      .tile-preview-left.tile-preview-right.on-primary {
+        border-radius: 0px 0px 0 0; }
+
+        /* ::: Panelinställningar ::: */
+        /* ***** om du vill skifta färg mellan avmax och max fönster: #panel och #panel.solid ***** */
+/* FIXME: (7)
+
+osäker på vilket nummer jag är på nu, men vafan... kör på!
+justerat panelen lite.
+ */
+        /* omaximera(t/de) fönster */
+        #panel {
+          font-weight: 400;
+          font-size: 1.1em;
+          height: 2.1em;
+          min-height: 27px;
+
+
+          background-gradient-direction: vertical;
+          background-gradient-start: rgba(5,10,15,.35);
+          background-gradient-end: rgba(60,65,70,.0);
+
+          border: .5px none rgba(0,0,0,.0);
+          border-top: .5px solid rgba(240,245,250,.15);
+          border-radius: 2px;
+
+          text-shadow: 0 1px 2px rgba(0,0,0,.8);
+          icon-shadow: 0 1px 2px rgba(0,0,0,.8);
+         }
+
+
+
+/* FIXME:(1)
+Se till att alla panel-lägen har samma ramar.
+Olika ramar segar ner Överblick.
+Kör med .5 för att det är schysst som fan på retina
+
+Det verkar som att det är bättre flyt mellan #panel och #overview om #panel är utan ram... tvärt emot #panel.solid där #panel.solid och #overview måste vara lika
+
+Tar bort transition-duration på solid för att slippa glapp vid övergång från overview till solid. Lägger in solid:overview också... verkar inte ha mycket effekt.. Den finns i någon sekund när overview visas, sedan så blir det panel:overview - men visas inte vad jag märkt när man går tillbaka från overview till solid.
+*/
+         /* maximera(t/de) fönster*/
+         #panel.solid,
+         #panel.solid:overview {
+           font-weight: 400;
+           font-size: 1.1em;
+           height: 2.1em;
+           min-height: 27px;
+
+           background-gradient-direction: none;
+           background: rgba(45,50,55,1); /*rgba(45,50,55,1)*/
+           border:  .5px solid rgba(0,0,0,.8);
+           border-top: none;
+           border-left: none;
+           border-right: none;
+           border-radius: 0px;
+
+           text-shadow: 0 1px 2px rgba(0,0,0,.8);
+           icon-shadow: 0 1px 2px rgba(0,0,0,.8);
+         }
+
+         #panel.solid .system-status-icon,
+         #panel.solid .app-menu-icon > StIcon,
+         #panel.solid .popup-menu-arrow  {
+           icon-shadow: 0 1px 2px rgba(0,0,0,.8);
+         }
+
+         /* överblicken */
+         #panel:overview {
+           border:  .5px solid rgba(0,0,0,0);
+           border-top: none;
+           border-left: none;
+           border-right: none;
+           border-radius: 0px;
+           }
+
+           #panel:overview .panel-corner {
+             -panel-corner-radius: 0px;
+             -panel-corner-background-color: rgba(15,20,30,0);
+             -panel-corner-border-width: 0px;
+             -panel-corner-border-color: transparent;
+           }
+           #panel #panelLeft, #panel #panelCenter {
+             spacing: 8px; }
+           #panel .panel-corner { /* kurva under panelen, påverkar programfönster*/
+             -panel-corner-radius: 0px;
+             -panel-corner-background-color: transparent;
+             -panel-corner-border-width: 0px;
+             -panel-corner-border-color: black; }
+             #panel .panel-corner:active, #panel .panel-corner:overview, #panel .panel-corner:focus {
+               -panel-corner-border-color: black; }
+             #panel .panel-corner.lock-screen, #panel .panel-corner.login-screen, #panel .panel-cornerunlock-screen {
+               -panel-corner-radius: 0;
+               -panel-corner-background-color: transparent;
+               -panel-corner-border-color: transparent;
+             }
+             /* FIXME: (10)
+             lägger en minimal skugga för att göra den ljusare
+             lägger en minimal svart skugga på markerad post längre ner.
+
+             Lägger också till en övre kant på knapparna så att dom hänger med knateffekten på wallpaper.
+              */
+/* ::: panelknappar ::: */
+#panel .panel-button .system-status-icon,
+#panel.solid .panel-button .system-status-icon {
+  padding: 0 4px;
+  icon-size: 16px;
+}
+
+#panel .panel-button {	/* meny poster. Men på hover/focus så måste ikoner skiljas pga ramar etc */
+-natural-hpadding: 10px;
+-minimum-hpadding: 6px;
+border: none;
+color: white;
+font-weight: 400;
+border: none;
+border-top: .5px solid rgba(155,155,160,0);
+box-shadow: 0 1px 2px rgba(0,0,0,.0); /*för att återställa och slippa spök-linjer*/
+}
+
+#panel.solid .panel-button,
+#panel:overview .panel-button {
+  -natural-hpadding: 10px;
+  -minimum-hpadding: 6px;
+  border: none; /* blir mer clean:t på mörk panelbakgrund */
+  border-top: .5px solid rgba(45,50,55,0);
+  color: #fff;
+  font-weight: 400;
+  font-size: 1em;
+  box-shadow: none;
+  }
+
+#panel .panel-button .system-status-icon.openweather-icon,
+#panel.solid .panel-button .system-status-icon.openweather-icon {
+  icon-shadow: 0 0 .5px #fff;
+}
+
+#panel .panel-button .app-menu-icon { /* program-ikoner, ligger framför namnet i panelen, men dom är inte alltid så vackra... */
+  width: 0px;
+  height: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+/* FIXME:
+
+Tar sedan bort gradienten på #panel.solid men lämnar den, för nu iaf, kvar på #panel :focus:hover för att markera när man svävar
+
+Justerar skuggor. Dom blir smalare och skarpare.
+Lägger också till en kontur på toppen för att matcha kanten på wallpaper.
+
+Gör även #panel knapparna +20 ljusare än #panel.solid knapparna för att kompensera för saknad av kontrast med den mörka panelen.
+
+Justerar även text och ikon -skuggor vit fokus (intryckt effekt)
+ */
+#panel .panel-button:hover {
+  color: white;
+  background: rgba(165,165,165,.85);
+  /*background-gradient-direction: vertical;
+  background-gradient-start: rgba(145,145,145,.85);
+  background-gradient-end: rgba(155,155,155,.85);*/
+  box-shadow: 0 .5px 1px rgba(0,0,0,.9);
+  border: .5 solid rgba(0,0,0,1);
+  border-top: .5px solid rgba(190,190,200,.9);
+
+}
+#panel.solid .panel-button:hover,
+#panel:overview .panel-button:hover,
+#panel:overview #panelActivities.panel-button:overview:hover {
+color: white;
+background-gradient-direction: none;
+background: rgba(145,145,145,1);
+border-top: rgba(145,145,145,1);
+box-shadow: none;
+}
+#panel .panel-button:active,
+#panel .panel-button:focus,
+#panel .panel-button:checked {
+  /*text-shadow: 0 1px 1px rgba(255,255,255,.3);
+  color: #222;
+  background: rgba(195,195,195,.85);
+  border: .5 solid rgba(0,0,0,1);
+  border-top: .5px solid rgba(220,220,230,.9);*/
+
+  background: rgba(175,180,185,1);
+  box-shadow: 0 .5px 1px rgba(0,0,0,.9);
+  text-shadow: 0 1px 1px rgba(255,255,255,.3);
+  color: #222;
+  border: .5px solid rgba(0,0,0,1);
+  border-top: rgba(230,235,240,1);
+  border-left: 0px;
+  border-bottom: 0px;
+  border-right: 0px;
+
+
+
+  /*
+  background: rgb(175,175,175);
+  border: 1px solid rgba(70,90,120,1) !important;
+  border-bottom: 1px solid rgba(80,100,130,1) !important;
+  border-top: none !important;
+  box-shadow:inset 0 -1px 2px rgba(0,0,0,1);
+  text-shadow: 0 0 2px black;
+  color: white;
+  */
+}
+#panel .panel-button:active .system-status-icon,
+#panel .panel-button:focus .system-status-icon,
+#panel .panel-button:checked .system-status-icon {
+  icon-shadow: 0 1px 1px rgba(255,255,255,.3);
+  color: #222;
+}
+#panel.solid .panel-button:active,
+#panel.solid .panel-button:focus,
+#panel.solid .panel-button:checked,
+#panel:overview .panel-button:active,
+#panel:overview .panel-button:focus,
+#panel:overview .panel-button:checked,
+#panel.solid #panelActivities.panel-button:focus {
+  text-shadow: 0 1px 1px rgba(255,255,255,.3);
+  color: #222;
+  background: rgba(175,175,175,1);
+  border: none;
+  box-shadow: none;
+}
+#panel.solid .panel-button:active .system-status-icon,
+#panel.solid .panel-button:overview .system-status-icon,
+#panel.solid .panel-button:focus .system-status-icon,
+#panel.solid .panel-button:checked .system-status-icon {
+  icon-shadow: 0 1px 1px rgba(255,255,255,.3);
+  color: #222;
+}
+/* FIXME: (9)
+markerad menypost, försöker göra openweather-ikonen så mörk som möjligt. Blir inte riktigt svart, men detta är det bästa vi kan göra för nu.
+ */
+#panel .panel-button:focus .system-status-icon.openweather-icon,
+#panel.solid .panel-button:focus .system-status-icon.openweather-icon {
+  icon-shadow: 0 0 .5px #000;
+}
+
+/* ::: mer panelgrejer ::: */
+#panel #panelActivities.panel-button {
+  -natural-hpadding: 12px; }
+#panel .panel-status-indicators-box,
+#panel .panel-status-menu-box {
+  spacing: 2px;
+ }
+#panel .power-status.panel-status-indicators-box {
+  spacing: 0;
+  font-size: 1.2em;
+ }
+#panel .screencast-indicator {
+  color: #FC4138; }
+#panel .clock-display > * > *:last-child {
+  color: rgb(145,145,145);
+  margin-left: .3em; }
+#panel .popup-menu-arrow {
+  width: 0; }
+
+#panel #panelActivities.panel-button > *,
+#panel.solid #panelActivities.panel-button > *,
+#panel:overview #panelActivities.panel-button > * {
+icon-shadow: black 0px 1px 4px;
+text-shadow: black 0px 1px 4px;
+width: 24px !important;
+height: 24px !important;
+background-color: transparent !important;
+background-gradient-direction: none !important;
+border: 0 none transparent !important;
+text-shadow: 0 0 transparent !important;
+transition-duration: 0ms !important;
+box-shadow: none !important;
+color: transparent;
+background-image: url("common-assets/panel/GnomeFootVit_merSkugga_v7.svg");
+}
+
+
+
+/* ::: systemmenyer ::: */
+.system-switch-user-submenu-icon { /*konto/användar -bild*/
+  icon-size: 20px;
+  background: black;
+  border-radius: 2px;
+  /*box-shadow: #666 0 0 2px;*/
+  padding: 1px;
+  margin: 0;
+  margin-left: 2px;
+  margin-right: 4px;
+ }
+
+.system-switch-user-submenu-icon.default-icon {
+  icon-size: 16px;
+  padding: 0 4px; }
+
+#appMenu {
+  spinner-image: url("common-assets/panel/process-working_simpleRingBlueFill.png");
+  spacing: 4px;
+  padding: 0 8px; }
+  #appMenu .label-shadow {
+    color: transparent; }
+
+.aggregate-menu {
+  min-width: 23.5em; }
+  .aggregate-menu .popup-menu-icon {
+    padding: 0 4px; }
+
+.system-menu-action { /*här är inställningar,lås och stäng av knapparna*/
+  padding: 13px;
+  margin-right: 3px;
+  border-radius: 32px;
+  border: 1px solid rgba(0,0,0,0);
+  transition-duration: 100ms;
+ }
+  .system-menu-action:hover { /*både last-child och first-child pekar på strömknappen...*/
+    background-color: rgb(145,145,145);
+    border: 1px solid rgb(145,145,145);
+    icon-shadow: 0 0 5px black;
+    box-shadow: 0 2px 10px black;
+  }
+  .system-menu-action:active {
+    background-color: rgb(140,140,140);
+    border: 1px solid rgb(140,140,140);
+  }
+  .system-menu-action:focus {
+    transition-duration: 100ms;
+    padding: 13px;
+    background-color: rgb(175,175,175);
+    border: 1px solid rgb(175,175,175);
+    icon-shadow: 0 0 5px black;
+    box-shadow: 0 2px 10px black;
+  }
+  .system-menu-action:focus:hover {
+    background-color: rgb(145,145,145);
+    border: 1px solid rgb(145,145,145);
+    icon-shadow: 0 0 5px black;
+    box-shadow: 0 2px 10px black;
+  }
+  .system-menu-action:focus:active {
+    background-color: rgb(140,140,140);
+    border: 1px solid rgb(140,140,140);
+  }
+    .system-menu-action:last-child:hover {
+      background-color: rgb(154,154,154);
+      border: 1px solid rgb(154,154,154);
+    }
+    .system-menu-action:last-child:active {
+      background-color: rgb(195,200,205);
+      border: 1px solid rgb(195,200,205);
+    }
+    .system-menu-action:last-child:focus:active {
+      background-color: rgb(180,55,85);
+      border: 1px solid rgb(180,55,85);
+    }
+  .system-menu-action > StIcon { /*hackan: inställningar,lås,stäng av ikoner (symbolerna)*/
+    icon-size: 16px;
+    color: rgb(200,200,200);
+    icon-shadow: 0 0 3px rgba(0,0,0,.6);
+  }
+  .system-menu-action:hover > StIcon { /*hackan: gör dom vita vid sväva och tryck*/
+    icon-size: 16px;
+    color: #eee;
+  }
+  .system-menu-action:focus > StIcon {
+    color: #222;
+  }
+  .system-menu-action:focus:hover > StIcon {
+    color: white;
+  }
+  .system-menu-action:active > StIcon {
+    icon-size: 16px;
+    color: #fff;
+  }
+     .system-menu-action:last-child:active > StIcon {
+      color: #222;
+    }
+
+    /* ::: kalender och meddelanden... sjukt lång ::: */
+    /****** Meddelanden och Kalender *******/
+    #calendarArea {
+      padding: .75em 1.0em;
+    }
+    /**** Gör egna inställningar till töm alla knapp ****/
+    #calendarArea .button {
+      background-gradient-start: rgba(185,190,195,1);
+      background-gradient-end: rgba(180,185,190,1);
+      background-gradient-direction: vertical;
+      border: .5px solid rgba(0,0,0,1);
+      border-radius: 4px;
+      font-weight: 400;
+      font-size: 1.1em;
+      color: #222;
+      text-shadow: 0 1px 1px rgba(255,255,255,.95);
+      box-shadow: none;
+    }
+    #calendarArea .button:hover {
+      background-gradient-start: rgba(215,220,225,1);
+      background-gradient-end: rgba(210,215,220,1);
+    }
+    #calendarArea .button:active {
+      background-gradient-start: rgba(135,140,145,.95);
+      background-gradient-end: rgba(140,145,150,.95);
+      color: white;
+    }
+    #calendarArea .button:focus {
+      background-gradient-start: rgba(205,210,215,1);
+      background-gradient-end: rgba(200,205,210,1);
+    }
+    #calendarArea .button:focus:hover {
+      background-gradient-start: rgba(215,220,225,1);
+      background-gradient-end: rgba(210,215,220,1);
+    }
+    #calendarArea .button:focus:active {
+      background-gradient-start: rgba(135,140,145,.95);
+      background-gradient-end: rgba(140,145,150,.95);
+      color: white;
+    }
+
+    #calendarArea .button:insensitive {
+      text-shadow: 0 0 1px rgba(200,200,200,0);
+      color: rgba(200,200,200,.35);
+      border: .5px solid rgba(0,0,0,.4);
+      background-gradient-start: rgba(140,145,150,.55);
+      background-gradient-end: rgba(140,145,150,.55);
+    }
+
+    .calendar {
+      margin-bottom: 1em;
+      /*background-color: rgba(255,255,255,.9);
+      border: 1px solid transparent;
+      border-radius: 3px;
+      padding: 3px;
+      box-shadow: 0px 1px 4px rgba(0,0,0,.5);*/
+     }
+
+
+    .datemenu-today-button,
+    .datemenu-displays-box,
+    .message-list-sections {
+      margin: 0 1.5em; }
+
+     /* där är du din lilla rackare! */
+     /* öppna dag i kalender */
+    .events-section-title {
+      background: rgba(140,140,140,1);
+      color: #333;
+      font-weight: normal;
+      font-size: 1.2em;
+      text-shadow: 0 0 3px rgba(0,0,0,.8);
+      box-shadow: 0 0 5px rgba(0,0,0,.3);
+      margin: 5px;
+      border: 1px solid rgba(0,0,0,.8);
+      border-radius: 3px;
+    }
+    .events-section-title:hover {
+      background: rgba(175,175,175,1);
+      color: #222;
+      text-shadow: 0 1px 1px rgba(250,250,250,.95);
+      border-color: rgba(0,0,0,.8);
+    }
+    .events-section-title:active {
+      background: rgba(140,140,140,1);
+      color: white;
+      text-shadow: 0 0 3px rgba(0,0,0,.3);
+      border-color: rgba(0,0,0,.8);
+    }
+    .events-section-title:focus {
+      background: rgba(175,175,175,1);
+      color: #222;
+      border-color: rgba(0,0,0,.8);
+    }
+    .events-section-title:focus:hover {
+      background: rgba(145,145,145,1);
+      color: white;
+      text-shadow: 0 0 3px rgba(0,0,0,.3);
+      border-color: rgba(0,0,0,.8);
+    }
+    .events-section-title:focus:active {
+      background: rgba(140,140,140,1);
+      color: white;
+      text-shadow: 0 0 3px rgba(0,0,0,.3);
+      border-color: rgba(0,0,0,.8);
+    }
+    .datemenu-calendar-column { /* här är hela högerdelen */
+      spacing: .5em;
+      border: none;
+     }
+
+    .datemenu-displays-section { /* här ligger plats och väder */
+      padding-bottom: 3em;
+     }
+
+    .datemenu-today-button,
+    .world-clocks-button,
+    .weather-button,
+    .message-list-section-title {
+      border-radius: 3px;
+      padding: .4em;
+      padding: 7px 10px 7px 10px;
+      border: 1px solid rgba(64, 69, 82, 0);
+     }
+     .world-clocks-button,
+     .weather-button { /*skuggorna kommer inte med helt annars*/
+       margin: 5px;
+     }
+
+    .message-list-section-list:ltr {
+      padding-left: .4em; }
+
+    .message-list-section-list:rtl {
+      padding-right: .4em; }
+
+    .world-clocks-button:focus,
+    .weather-button:focus {
+      background: rgb(175,175,175);
+      color: #333;
+    }
+    .world-clocks-button:focus .world-clocks-header,
+    .weather-button:focus .weather-header {
+      color: #222;
+    }
+
+      .datemenu-today-button:hover, .datemenu-today-button:focus,
+      .world-clocks-button:hover,
+      .weather-button:hover,
+      .message-list-section-title:hover,
+      .message-list-section-title:focus {
+        text-shadow: 0 1px 1px rgba(250,250,250,.3);
+        color: #222;
+        background-color: rgb(175,180,185);
+        border: 1px solid rgb(180,180,180);
+        box-shadow: 0 0 5px rgba(0,0,0,.8); }
+      .datemenu-today-button:active,
+      .world-clocks-button:active,
+      .weather-button:active,
+      .message-list-section-title:active {
+        text-shadow: 0 0 3px rgba(0,0,0,.3);
+        color: #fff;
+        background-color: rgb(140,140,140);
+        border: 1px solid rgb(140,140,140);
+        box-shadow: 0 0 5px rgba(0,0,0,.7);
+      }
+
+        .world-clocks-header,
+        .weather-header,
+        .message-list-section-title {
+          color: #fff; /*titlar t ex klockor och väder*/
+          font-weight: 400;
+          font-size: 1.2em;
+         }
+        .world-clocks-button:hover .world-clocks-header,
+        .weather-button:hover .weather-header { /*hackan: lägger till en ":hover" så att titeln får samma färg som innehållet*/
+          color: #222; }
+        .world-clocks-button:active .world-clocks-header,
+        .weather-button:active .weather-header {
+          color: #fff; }
+
+        .world-clocks-grid {
+          spacing-rows: .6em; }
+
+    .datemenu-today-button .date-label {
+      font-size: 1.5em;
+    }
+    .datemenu-today-button {
+      background: rgb(178,178,178);
+      color: #222;
+      text-shadow: 0 1px 1px rgba(255,255,255,.3);
+      box-shadow: 0 2px 10px rgba(0,0,0,.7);
+    }
+    .datemenu-today-button:hover {
+      background: rgb(190,190,190);
+    }
+    .datemenu-today-button:focus {
+      background: rgb(175,175,175);
+    }
+    .datemenu-today-button:insensitive { /*så jävla kung :-D*/
+      background: transparent;
+      color: #fff;
+      text-shadow: 0 0 3px rgba(0,0,0,1);
+      box-shadow: 0 0 5px rgba(0,0,0,0);
+    }
+
+    .calendar-month-label {
+      color: rgb(175,175,175);
+      font-weight: bold;
+      padding: 8px 0; }
+
+    .pager-button { /*kalender gå månad fram/tillbaka*/
+      color: transparent;
+      background-color: transparent;
+      width: 32px;
+      border-radius: 2px; }
+      .pager-button:focus, .pager-button:hover, .pager-button:active {
+        background-color: transparent; }
+
+    .calendar-change-month-back {
+      background-image: url("dark-assets/misc/calendar-arrow-left.svg"); }
+      .calendar-change-month-back:focus, .calendar-change-month-back:hover {
+        background-image: url("dark-assets/misc/calendar-arrow-left-hover.svg"); }
+      .calendar-change-month-back:active {
+        background-image: url("dark-assets/misc/calendar-arrow-left.svg"); }
+      .calendar-change-month-back:rtl {
+        background-image: url("dark-assets/misc/calendar-arrow-right.svg"); }
+        .calendar-change-month-back:rtl:focus, .calendar-change-month-back:rtl:hover {
+          background-image: url("dark-assets/misc/calendar-arrow-right-hover.svg"); }
+        .calendar-change-month-back:rtl:active {
+          background-image: url("dark-assets/misc/calendar-arrow-right.svg"); }
+
+    .calendar-change-month-forward {
+      background-image: url("dark-assets/misc/calendar-arrow-right.svg"); }
+      .calendar-change-month-forward:focus, .calendar-change-month-forward:hover {
+        background-image: url("dark-assets/misc/calendar-arrow-right-hover.svg"); }
+      .calendar-change-month-forward:active {
+        background-image: url("dark-assets/misc/calendar-arrow-right.svg"); }
+      .calendar-change-month-forward:rtl {
+        background-image: url("dark-assets/misc/calendar-arrow-left.svg"); }
+        .calendar-change-month-forward:rtl:focus, .calendar-change-month-forward:rtl:hover {
+          background-image: url("dark-assets/misc/calendar-arrow-left-hover.svg"); }
+        .calendar-change-month-forward:rtl:active {
+          background-image: url("dark-assets/misc/calendar-arrow-left.svg"); }
+
+          .calendar-day-base.calendar-day-heading { /* initialer för veckodagar */
+            color: #999;
+            margin-top: 1em;
+            font-size: 70%;
+            font-weight: bold;
+            background: rgba(45,50,55,.95);
+            border-radius: 2px;
+            padding: 0;
+            vertical-align: middle;
+            border: 1px solid transparent;
+           }
+           .calendar-day-base.calendar-day-heading:focus {
+             border: 1px solid rgb(175,175,175);
+           }
+           .calendar-day-top {
+             border-top-width: 0;}
+
+           .calendar-day-left {
+             border-left-width: 0; }
+
+    .calendar-day-base {
+      font-size: .9em;
+      font-weight: 400;
+      text-align: center;
+      width: 25px;
+      height: 25px;
+      margin: 2px;
+      border-radius: 4px;
+     }
+      .calendar-day-base:hover { /*markerade andra dagar*/
+        background-color: rgba(145,145,145,1);
+       }
+      .calendar-day-base:active {
+        background-color: rgba(145,145,145,1);
+         }
+      .calendar-day-base:focus {
+        background-color: rgba(175,175,175,1);
+      }
+      .calendar-day-base:selected {
+        background-color: rgba(175,175,175,1);
+      }
+    /*dagar generellt*/
+    .calendar-day {
+      color: rgb(220,220,220);
+      border: 2px solid rgba(0,0,0,0);
+     }
+     .calendar-day:hover {
+       color: rgb(255,255,255);
+       border: 2px solid rgba(35,40,45,1);
+     }
+     .calendar-day:focus,
+     .calendar-day:selected {
+       font-size: 1em;
+       color: rgb(15,15,15);
+       border: 2px solid rgba(35,40,45,1);
+     }
+
+     .calendar-day-with-events {
+       color: rgb(255,255,255);
+       text-decoration: none;
+       border: 2px solid rgba(0,0,0,0);
+      }
+     .calendar-day-with-events:hover {
+       border: 2px solid rgba(35,40,45,1);
+     }
+     .calendar-day-with-events:focus,
+     .calendar-day-with-events:selected {
+       font-size: 1em;
+       color: rgb(15,15,15);
+       border: 2px solid rgba(35,40,45,1);
+     }
+    /* jag måste ta göra svagare ram på :hover & :focus nedan annars verkar det bli dubbel-ram, "calendar-day" plus dessa "with-events" */
+
+    .calendar-nonwork-day {
+      border: 2px solid rgba(0,0,0,0);
+      color: rgb(220,220,220);
+      }
+
+      .calendar-nonwork-day.calendar-day-with-events {
+      /*kombinera med ".", verkar bara vara om det finns ":" som man separerar*/
+      /*color: inherit;
+      font-weight: bold;*/
+      border: 2px solid rgba(0,0,0,0);
+      color: rgb(255,255,255);
+    }
+
+      .calendar-nonwork-day:hover,
+      .calendar-nonwork-day.calendar-day-with-events:hover {
+        border: 2px solid rgba(35,40,45,1);
+        color: rgb(255,255,255);
+      }
+      .calendar-nonwork-day:focus,
+      .calendar-nonwork-day:selected,
+      .calendar-nonwork-day.calendar-day-with-events:focus,
+      .calendar-nonwork-day.calendar-day-with-events:selected {
+        border: 2px solid rgba(35,40,45,1);
+        color: rgb(15,15,15);
+        font-size: 1em;
+      }
+
+
+    .calendar-today {
+      font-weight: bold !important;
+      font-size: 1em;
+      background-color: rgb(178,178,178);
+      /*border: 2px solid rgba(0,0,0,.7);*/
+      border-radius: 4px;
+      color: #222 !important;
+      border-color: rgb(35,40,45) !important;
+    }
+    .calendar-today:hover { /* om du får problem med färgbyten, hover kommer först ;-) */
+      color: white !important;
+      background-color: rgb(145,145,145);
+      /*border: 2px solid rgba(0,0,0,.7);*/
+    }
+    .calendar-today:active,
+    .calendar-today:focus,
+    .calendar-today:selected {
+      background-color: rgb(175,175,175);
+      color: #222 !important;
+      border-color: rgb(35,40,45) !important;
+
+      /*border: 2px solid rgba(0,0,0,.7);*/
+      /*color: #222 !important;*/
+      /*border-color: rgba(5,5,5,.8) !important;*/
+    } /* jag gjorde "color: white" viktig ovanför, så denna måste bli likvärdig */
+    .calendar-today.calendar-day-with-events:checked {
+      /*color: #222;*/
+     }
+     .calendar-today.calendar-day-with-events:hover, .calendar-today.calendar-day-with-events:focus {
+       /*border-color:rgba(5,5,5,.15) !important;*/
+      }
+
+
+
+    .calendar-other-month-day { /*dagar synliga ifrån intilliggande månader*/
+      color: #555 !important;
+      opacity: 1; }
+
+    .calendar-week-number {
+      font-size: .7em;
+      width: 25px;
+      height: 15px;
+      color: rgb(180,180,180);
+      border: .5px solid rgba(220,220,220,0);
+      text-align: center;
+      padding-top: 1.2em;
+      background: transparent;
+    }
+    .calendar-week-number:focus {
+      border-radius: 1.8em;
+      background-color: transparent !important;
+      border: 1px solid rgb(200,205,210);
+      color: #eee;
+    }
+
+    .message-list {
+      color: #fff;
+      width: 31.5em; }
+      .message-list-sections {
+        spacing: 1.5em; }
+      .message-list-section, .message-list-section-list {
+        spacing: .7em; }
+      .message-list-section-list-title-box {
+        spacing: .4em; }
+      .message-list-placeholder StIcon { /* ikon inga händelser */
+        width: 0px;
+        height: 0px;
+       }
+      .message-list-placeholder StLabel { /* "text inga händelser" */
+        color: rgba(0,0,0,.4);
+        text-shadow: 0 1px 1px rgba(255,255,255,.3);
+        font-weight: normal;
+        font-size: 2.5em;
+       }
+      .message-list-section-close > StIcon {
+        icon-size: 18px;
+        border-radius: 0px;
+        color: transparent;
+        background-color: transparent;
+        background-image: url("dark-assets/misc/message-close.svg"); }
+      .message-list-section-close:hover > StIcon {
+        color: transparent;
+        background-color: transparent;
+        background-image: url("dark-assets/misc/message-close-hover.svg"); }
+      .message-list-section-close:active > StIcon {
+        color: transparent;
+        background-color: transparent;
+        background-image: url("dark-assets/misc/message-close-active.svg"); }
+
+    .message { /*hackan: system-meddelanden */
+      padding: 4px;
+      background: transparent;
+      border: 1px solid transparent;
+     }
+
+      .message:focus,
+      .message:hover,
+      .message:focus:hover {
+        background: rgb(175,180,185);
+      }
+      .message:active {
+        background: rgb(160,160,160);
+      }
+      .message-icon-bin,
+      .message-secondary-bin > .event-time {
+        color: rgba(43,40,37,0); /* ska inte synas förrän :hover / :focus */
+        padding: 2px;
+        padding-right: 10px;
+      }
+        .message-icon-bin:rtl {
+          padding: 8px 8px 8px 0px; }
+        .message-icon-bin > StIcon {
+          color: #eee;
+          margin-top: 5px;
+          icon-shadow: rgba(0,0,0,.5) 0px 1px 3px;
+          icon-size: 24px; }
+        .message-secondary-bin:ltr,
+        .message-secondary-bin > .event-time:ltr {
+          padding-left: 8px; }
+        .message-secondary-bin:rtl,
+        .message-secondary-bin > .event-time:rtl {
+          padding-right: 8px; }
+      .message-secondary-bin > StIcon {
+        icon-shadow: black 0px 1px 4px;
+        icon-size: 16px; }
+    /*titel och innehåll, skapar också hover/active fäger undertill*/
+      .message-title {
+        font-size: 1.2em;
+        padding: 2px 0 2px 0;
+        color: #eee;
+        font-weight: normal;
+    }
+    .message-content {
+      padding: 8px;
+      color: #ccc;
+    }
+
+      .message:hover .message-title, .message:hover .message-content, .message:hover .message-media-control, .message:hover .message-icon-bin > StIcon, .message:hover .message-secondary-bin > .event-time { /*måste börja med förälder med situation, för det är den som reagerar på sväva. Lägger till media-kontroller också*/
+          color: #222;
+          text-shadow: 0 1px 1px rgba(250,250,250,.3);
+          icon-shadow: 0 1px 1px rgba(250,250,250,.3);
+          /*
+          text-shadow: 0 1px 2px rgba(0,0,0,.5);
+          icon-shadow: 0 1px 2px rgba(0,0,0,.5);
+          */
+
+    }
+
+    /* ge tidstämplarna en liten låda typ. Ta bort dom ur övriga .message lägena isf*/
+    /*.message:hover .message-secondary-bin > .event-time {
+      background: #ddd;
+      color: rgb(145,145,145);
+      border-radius: 3px;
+      box-shadow: 0 0 5px rgba(0,0,0,.3);
+    }*/
+
+
+    /* coool, får med ikoner att bli mörka vid grön :-D */
+    .message:focus .message-title, .message:focus .message-content, .message:focus .message-media-control, .message:focus .message-icon-bin > StIcon, .message:focus .message-secondary-bin > .event-time  {
+      color: #222;
+      text-shadow: 0 1px 1px rgba(250,250,250,.3);
+      icon-shadow: 0 1px 1px rgba(250,250,250,.3);
+    }
+    .message:focus:hover .message-title, .message:focus:hover .message-content, .message:focus:hover .message-media-control, .message:focus:hover .message-icon-bin > StIcon, .message:focus:hover .message-secondary-bin > .event-time  {
+      color: #222;
+      text-shadow: 0 1px 1px rgba(250,250,250,.3);
+      icon-shadow: 0 1px 1px rgba(250,250,250,.3);
+      text-decoration: underline;
+    }
+      .message:active .message-title,
+      .message:active .message-content,
+      .message:active .message-media-control,
+      .message:active .message-icon-bin > StIcon,
+      .message:active .message-secondary-bin > .event-time {
+       color: #222;
+       text-shadow: 0 1px 1px rgba(250,250,250,.3);
+       icon-shadow: 0 1px 1px rgba(250,250,250,.3);
+    }
+    /*
+      .message:hover .message-content {
+       color: #ddd;
+    }
+      .message:active .message-content {
+      color: #eee;
+    }*/
+
+    .message-media-control {
+      padding: 6px;
+      color: #eee; }
+      .message-media-control:last-child:ltr {
+        padding-right: 18px; }
+      .message-media-control:last-child:rtl {
+        padding-left: 18px; }
+
+      .message .message-media-control > StIcon {
+        color: #ccc;
+        icon-shadow: 0 1px 2px rgba(0,0,0,.5);
+      }
+      .message:hover .message-media-control > StIcon {
+        color: #eee;
+        icon-shadow: 0 1px 2px rgba(0,0,0,.5);
+      }
+      .message:focus .message-media-control > StIcon {
+        color: #222;
+        icon-shadow: 0 1px 1px rgba(250,250,250,.4);
+      }
+      .message:focus:hover .message-media-control > StIcon {
+        color: #eee;
+        icon-shadow: 0 1px 2px rgba(0,0,0,.5);
+      }
+      .message:hover .message-media-control:hover > StIcon {
+         color: white;
+         icon-shadow: 0 1px 2px rgba(0,0,0,.8);
+         icon-size: 20px !important;
+       }
+       .message:focus .message-media-control:hover > StIcon {
+          color: white;
+          icon-shadow: 0 1px 2px rgba(0,0,0,.8);
+        }
+
+      .message:hover .message-media-control:active  > StIcon {
+        color: rgb(0,90,170);
+        icon-shadow: 0 1px 1px rgba(250,250,250,.8);
+         }
+         .message:focus .message-media-control:active  > StIcon {
+           color: rgb(0,90,170);
+           icon-shadow: 0 1px 1px rgba(250,250,250,.8);
+            }
+
+    .media-message-cover-icon {
+      icon-size: 32px; }
+      .media-message-cover-icon.fallback {
+        color: rgba(61, 68, 67, .45);
+        background-color: #383C4A;
+        border-radius: 2px;
+        icon-size: 16px;
+        padding: 8px;
+        border: 1px solid #8b8e89; }
+
+
+
+
+    .popup-menu-arrow {
+      width: 16px;
+      height: 16px; }
+
+    .popup-menu-icon { /*hackan: här så ligger alla popupmeny-ikoner*/ /*fixed*/
+      icon-size: 16px;
+      color: white; /*alla system-ikoner*/
+      icon-shadow: 0px 1px 2px rgba(0,0,0,.8);
+      /*intressant*/
+    }
+
+    .window-close {
+      -shell-close-overlap: 11px; }
+
+      /* ::: nätverksdialog ::: */
+      .nm-dialog { /*.prompt-dialog för tex .nm-rubrik*/
+        max-height: 500px;
+        min-height: 450px;
+        min-width: 470px;
+      }
+      .nm-dialog .modal-dialog-button {
+        border-radius: 4px;
+        padding: 2px 8px 2px 8px;
+        border: 1px solid rgba(35,40,45,.8);
+      }
+        .nm-dialog-content {
+          spacing: 20px;
+          padding: 10px; }
+        .nm-dialog-header-hbox {
+          spacing: 10px; }
+        .nm-dialog-airplane-box {
+          spacing: 12px; }
+        .nm-dialog-airplane-headline {
+          font-size: 1.1em;
+          font-weight: bold;
+          text-align: center; }
+        .nm-dialog-airplane-text {
+          }
+        .nm-dialog-header-icon {
+          icon-size: 32px; }
+        .nm-dialog-scroll-view {
+          border: none;
+          border-radius: 3px;
+          background-color: rgba(45,50,55,0);
+          box-shadow:inset 0 0 0 rgba(0,0,0,0);
+        }
+        .nm-dialog-header {
+          font-weight: bold;
+          font-size: 1.2em;
+         }
+        .nm-dialog-item {
+          font-size: 1em;
+          border-bottom: 0px solid;
+          padding: 12px;
+          spacing: 0px;
+        }
+        .nm-dialog-item:hover {
+          background: rgb(145,145,145) !important;
+          text-shadow: 0 0 5px rgba(0,0,0,1);
+        }
+          .nm-dialog-item:selected {
+            background-color: rgb(175,175,175);
+            color: #222 !important;
+            text-shadow: 0 1px 1px rgba(250,250,250,.3);
+            font-weight: bold;
+          }
+          .nm-dialog-item:selected StIcon {
+            color: #222 !important;
+            icon-shadow: 0 1px 1px rgba(250,250,250,.3);
+          }
+        .nm-dialog-icons {
+          spacing: .5em; }
+        .nm-dialog-icon {
+          icon-size: 16px; }
+
+      .no-networks-label {
+        color: rgb(154,154,154);
+        font-weight: bold;
+       }
+
+      .no-networks-box {
+        background: rgba(45,50,55,1);
+        border-radius: 5px;
+        padding: 5px;
+        spacing: 12px;
+       }
+
+       /* till överblick, ringeffekt etc */
+       .ripple-box {
+         width: 52px;
+         height: 52px;
+         background-image: url("common-assets/misc/corner-ripple-ltr-green.png");
+         background-size: contain; }
+         .ripple-box:rtl {
+           background-image: url("common-assets/misc/corner-ripple-rtl.svg"); }
+
+
+/* FIXME:
+justerar överblicken rätt mycket, både exposé och nät etc.
+ */
+    /* ::: Överblick, nu blir det intressant ::: */
+    #overview { /* Överblick */
+      spacing: 24px;
+
+      /*sök till nuvarande skrivbordsunderlägg och blu effekt :-D*/
+    /*background: url("../../../../../.overviewBackground.jpg");*/
+    /*background-image: url("common-assets/misc/overblick_kanter.png");*/
+    /*background-size: contain !important;*/ /* 1380px 840px för min MBP skärm*/
+
+  /*background-color: rgba(145,145,145,.4);*/
+  background-color: rgba(140,145,150,.4);
+/*background-gradient-start: rgba(95,100,105,.4);
+background-gradient-end: rgba(90,95,100,.4);
+background-gradient-direction: radial;*/
+
+
+    /* Traditionell Överblick.
+    Blev cool med border 0px
+    ! Viktigt: .workspace-thumbnails background-color a: .7*/
+
+    border: 1px rgba(25,30,35,.8);
+    border-radius: 3px;
+    padding: 0px;
+    box-shadow:inset 0 0 0px 0px rgba(0,0,0,.8);
+
+
+    /* Utzoomad Överblick.
+    Funkar inte med runt. Du får tomma utskärningar i hörnen efter den kurvade ramen.
+    ! Viktigt: .workspace-thumbnails background-color a: 1
+
+    border: 30px solid rgba(25,30,35,1);
+    border-radius: 0px;
+    box-shadow:inset 0 0 .5px .5px rgba(255,255,255,.25);
+    padding: -30px;*/
+
+
+    /* Kurvad Överblick.
+    Rundad, genomskinlig ram (för att slippa snusk-mellanrum i kanterna)
+    *//*
+    ! Viktigt:
+    .workspace-thumbnails background-color a: .2
+
+    border: 30px solid rgba(25,30,35,.0);
+    border-radius: 33px;
+    box-shadow:inset 0 0 .5px .5px rgba(255,255,255,.25);
+    padding: -30px;*/
+
+
+    /* lägger tumnaglarna i linje med kant */
+    padding-right: 0px;
+    /* *** Tumnaglarna eget område *** */
+    /*border-right: 165px;
+    padding-right: -165px;*/
+    /* ****************************** */
+    /*transition-duration: 800ms;*/
+    /*strunta i transition, bättre med fart :-D */
+
+    }
+    /*här ligger skrivborden*/
+    .overview-controls { }
+
+     .workspace-thumbnails {
+       /*
+       - ner en pixel (och två på grön) på varje för att kompensera ljusare underlägg*/
+       visible-width: 80px;
+       spacing: 25px;
+       padding: 10px;
+       background-color: rgba(25,30,35,.7);
+       box-shadow: inset .5px 0 1px .5px rgba(0,0,0,.7) !important;
+       border: .5px solid rgba(240,240,240,.2); /*lite mörkjare iom skuggan som inte #overview tyvärr har*/
+       border-right: none;
+       border-radius: 3px 0 0 3px;
+       overflow: visible;
+      }
+      .workspace-thumbnails .placeholder {
+        background-image: none;
+        /* överblicks-stil*/
+
+        background: rgba(165,170,175,.1);
+        border: .5px solid rgba(165,170,175,.3);
+
+        /*hover-färg*/
+      /*
+        background: rgba(145,145,145,.4);
+        border: 1px solid rgba(145,145,145,.6);
+      */
+      }
+
+        .workspace-thumbnail-indicator {
+          border: 4px solid rgba(230,235,240,.6);
+          border-top: none;
+          border-right: none;
+          border-bottom: none;
+          border-radius: 0px;
+          padding: 6px; /* typ samma avstånd som från skärmkanten*/
+          margin-left: 3px;
+         }
+         .window-picker {
+           -horizontal-spacing: 32px;
+           -vertical-spacing: 40px;
+           padding-left: 52px;
+           padding-right: 12px;
+           padding-bottom: 15px;
+         }
+       .window-picker.external-monitor {
+           padding: 32px; }
+
+/* FIXME:
+gjort om ramar och underlinjer
+
+Det blir en fin loten svart ram och lite extra skugga runt fönstrena
+
+Titlarna var lite mariga. Av någon anledning så ger box-shadow lite bakgrund till hela titel-lådan. Kanske är så det är med alla element... :inset funkar ju iaf, så använder box-shadow till linje och fejkar skugga med en svag border.
+ */
+       .window-clone-border {
+         border: .5px solid rgba(50,55,60,1);
+         border-radius: 2px;
+         box-shadow: 0 0 4px 2px rgba(0,0,0,1);
+       }
+       .window-clone {
+
+       }
+       /*hackan: här är titlar för fönster-vy, kör genomskinligt med skugga för att skapa rymd*/
+       .window-caption {
+         spacing: 25px;
+         padding: 4px 12px;
+         margin-top: 20px;
+         color: rgba(255,255,255,1);
+         text-shadow: 0 0 3px 1px rgba(0,0,0,1);
+         font-weight: 400;
+         font-size: 1.3em;
+         background: transparent;
+         box-shadow: 0 0 0 0 rgba(0,0,0,0);
+         border: 0px none rgba(0,0,0,.0);
+         border-radius: 0px;
+         text-align: center;
+         -shell-caption-spacing: 12px;
+       }
+
+       .window-caption:hover { /* ubuntu gnoime v 26 verkar ha tagit bort :hover på den här. Texten visas bara när fönster är markerat */
+         /*border: 1px solid rgb(145,145,145);*/
+       }
+
+       /* ::: till Överblick fönster ::: */
+       .window-close {
+         background-image: url("common-assets/misc/close.svg");
+         background-size: 26px;
+         /*background-gradient-start: rgba(250,250,250,.4);
+         background-gradient-end: rgba(200,200,200,.4);
+         background-gradient-direction: vertical;*/
+         height: 23px;
+         width: 23px;
+         border: .5px solid rgba(0,0,0,.4);
+         border-radius: 23px;
+        }
+         .window-close:hover {
+           background-image: url("common-assets/misc/close-hover.svg");
+           /*background-gradient-start: rgba(255,255,255,1);
+           background-gradient-end: rgba(230,230,230,1);*/
+         }
+         .window-close:active {
+           background-image: url("common-assets/misc/close-active.svg");
+           /*background-gradient-start: rgba(200,200,200,1);
+           background-gradient-end: rgba(250,250,250,1);*/
+         }
+
+       /* ::: Dash sök ::: */
+      .search-entry {
+        width: 320px;
+        padding: 7px 9px;
+        border: 1px solid transparent;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-radius: 0px;
+        background-color: rgba(220,220,220,0);
+        font-weight: 400;
+        font-size: 1.1em;
+        color: rgba(175,180,185,1);
+        text-shadow: 0 1px 3px rgba(0,0,0,.5) !important; /* äntligen! */
+        /*box-shadow: 0 0 0 rgba(220,220,220,0);*/
+        transition-duration: 800ms;
+       }
+        .search-entry:hover { /*hackan: delar upp :hover och :focus så att den går från genomskinlig till blå till grön*/
+          border: 1px solid;
+          border-top: none;
+          border-left: none;
+          border-right: none;
+          color: rgb(215,220,225);
+          caret-color: rgb(215,220,225);
+          background-color: rgba(240,240,240,0);
+          selection-background-color: rgba(215,220,225,1);
+          selected-color: #555;
+        }
+        .search-entry:focus { /*var tvungen att köra viktigt för att få effekt*/
+          border: 1px solid rgba(230,235,240,.3) !important;
+          border-top: none !important;
+          border-left: none !important;
+          border-right: none !important;
+          color: rgb(230,235,240);
+          caret-color: rgb(230,235,240) !important;
+          background-color: rgba(175,175,175,.00);
+          selection-background-color: rgb(230,235,240);
+          selected-color: #555; /*40,190,255*/
+          box-shadow:inset 0 -1px 0 rgba(0,0,0,6);
+         }
+          .search-entry .search-entry-icon {
+            icon-size: 16px;
+            padding: 0 4px;
+            color: rgba(180,180,180,1);
+            icon-shadow: 0 1px 3px rgba(0,0,0,.5);
+           }
+          .search-entry:hover .search-entry-icon {
+            color: rgb(220,220,220); }
+          .search-entry:focus .search-entry-icon {
+            color: rgb(235,235,235); }
+
+            /* ::: Sökresultat ::: */
+
+            #searchResultsBin {
+              max-width: 1000px;
+              padding-top: 10px; /* annars klipps skuggorna */
+             }
+
+            #searchResultsContent {
+              padding-left: 20px;
+              padding-right: 20px;
+              spacing: 16px;
+            }
+            .search-section {
+              spacing: 16px;
+            }
+
+            .search-section-content {
+              spacing: 32px;
+            }
+
+            .list-search-results {
+              spacing: 3px;
+            }
+            .search-section-separator {
+              background-color: rgba(220,220,220,.0);
+              border: 1px solid rgba(0,5,10,.6);
+              border-bottom: none;
+              border-left: none;
+              border-right: none;
+              -margin-horizontal: 1.5em;
+              height: 1px;
+              box-shadow:inset 0 1px 0 rgba(240,245,250,.2);
+             }
+
+            .list-search-result-content {
+              spacing: 12px;
+              padding: 12px;
+             }
+
+            .list-search-result-title {
+              font-size: 1.5em;
+              color: #fff;
+            }
+
+            .list-search-result-description {
+              padding-top: .4em;
+              color: #eee;
+            }
+            .list-search-result-icon {
+              background: rgba(45,50,55,.8);
+            }
+
+
+            .search-provider-icon-more {
+              width: 16px;
+              height: 16px;
+              background-image: url("common-assets/misc/more-results.svg");
+            }
+            /* FIXME:(2)
+            Nu så ser sökresultat hover och focus likadana ut
+             */
+            /* ::: sökresultat ::: */
+
+
+            .search-provider-icon:active, .search-provider-icon:checked,
+            .list-search-result:active,
+            .list-search-result:checked {
+            }
+
+            .search-provider-icon,
+            .list-search-result,
+            .list-search-result StIcon,
+            .search-provider-icon StIcon { /*ger text i resultatlistan skugga */
+              text-shadow: 0 1px 2px rgba(0,0,0,.8);
+              icon-shadow: 0 1px 5px rgba(0,0,0,.8);
+            }
+
+            .list-search-result:focus,
+            .list-search-result:selected,
+            .list-search-result:hover,
+            .list-search-result:active { /*detta är för sökresultat lådor*/
+              background: rgba(215,220,225,.95);
+              box-shadow: inset 0pt 0pt 20pt rgba(55, 195,75,.3);
+              border: inset 1px solid rgba(250,250,250,0);
+              border-radius: 3px;
+              transition-duration: 200ms;
+              box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+              color: #333;
+              text-shadow: 0 1px 1px rgba(255,255,255,.3);
+            }
+            .search-provider-icon:focus,
+            .search-provider-icon:selected,
+            .search-provider-icon:hover,
+            .search-provider-icon:active,
+            .search-provider-icon:focus:hover,
+            .search-provider-icon:selected:hover {
+              background: rgba(45,50,55,.95);
+              box-shadow: inset 0pt 0pt 20pt rgba(55, 195,75,.3);
+              border: inset 1px solid rgba(250,250,250,0);
+              border-radius: 3px;
+              transition-duration: 200ms;
+              box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+              text-shadow: 0 0 3px rgba(0,0,0,1);
+            }
+
+             .list-search-result:focus:hover,
+             .list-search-result:selected:hover {
+               background: rgba(215,220,225,.95);
+               box-shadow: inset 0pt 0pt 20pt rgba(55, 175, 255,.3);
+               border: inset 1px solid rgba(175,175,175,0);
+               border-radius: 3px;
+               transition-duration: 200ms;
+               box-shadow: 0 1px 10px rgba(0,0,0,.8);
+             }
+
+             .list-search-result .list-search-result-title,
+             .list-search-result .list-search-result-description
+             .list-search-result .list-search-result-title,
+             .list-search-result .list-search-result-description {
+               text-shadow: 0 1px 2px rgba(0,0,0,.8);
+               icon-shadow: 0 1px 5px rgba(0,0,0,.8);
+             }
+             .list-search-result:focus .list-search-result-title,
+             .list-search-result:focus .list-search-result-description,
+             .list-search-result:focus .search-provider-icon,
+             .list-search-result:focus StIcon,
+             .list-search-result:selected .list-search-result-title,
+             .list-search-result:selected .list-search-result-description,
+             .list-search-result:selected .search-provider-icon,
+             .list-search-result:selected StIcon,
+             .list-search-result:hover .list-search-result-title,
+             .list-search-result:hover .list-search-result-description,
+             .list-search-result:hover .search-provider-icon,
+             .list-search-result:hover StIcon,
+             .list-search-result:focus:hover .list-search-result-title,
+             .list-search-result:focus:hover .list-search-result-description
+
+             { /* detta är för sökresultat texter */
+               color: #222;
+               text-shadow: 0 1px 1px rgba(255,255,255,.3);
+               icon-shadow: 0 1px 1px rgba(255,255,255,.3);
+             }
+
+             /* ::: Docken ::: */
+             #dash {
+                 color: rgba(255,255,255,1);
+                 font-size: 1.2em;
+                 padding: 4px 0;
+                 background: none;
+                 /*SLIM
+                 border-image: url("common-assets/dash/CarapaceDockSlim_v2.svg") 9 9 9 9;*/
+                 /*PANTHEON*/
+                 border-image: url("common-assets/dash/CarapaceDockPantheon_v1.svg") 9 9 9 9;
+                 /*3D
+                 border-image: url("common-assets/dash/CarapaceDock3D_v5.svg") 10 10 10 10;*/
+             }
+
+             #dashtodockDashScrollview {
+               /*hack för att undvika att :hover/:active går utanför dock-kanten*/
+               margin-left: 5px;
+             }
+
+             #dashtodockBox {
+               border: none;
+             }
+
+             #dashtodockContainer .app-well-app .overview-icon {
+             background-gradient-start: rgba(0,0,0,.4);
+             background-gradient-end: rgba(120,120,120,0);
+             background-gradient-direction: radial;
+             border: 0px transparent none;
+             margin-bottom: 0px;
+             margin-top: 1px;
+             box-shadow: none;
+              }
+             #dashtodockContainer .app-well-app .overview-icon StIcon {
+             icon-shadow: 0 0 2px 2px rgba(0,0,0,.4);
+              }
+              #dashtodockContainer .app-well-app:hover StIcon {
+              icon-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+               }
+
+               #dashtodockContainer .app-well-app-running-dot {
+                 width: 32px;
+                 height: 2px;
+                 border-radius: 2.5px;
+                 margin-bottom: 0px; /*sänker indikatorn iom att vi gjorde lådorna mindre*/
+                 background: none;
+                 box-shadow: 0 0 1px 1px rgba(0,0,0,.8);
+               }
+               #dashtodockContainer .running1 .app-well-app-running-dot {
+                 width: 6px;
+                 height: 2.5px;
+                 background: rgb(215,220,225);
+               }
+
+               #dashtodockContainer .running1:hover .app-well-app-running-dot {
+                 background: rgb(245,250,255);
+               }
+
+               #dashtodockContainer .running2 .app-well-app-running-dot {
+                 width: 12px;
+                 height: 2.5px;
+                 background: rgb(215,220,225);
+               }
+               #dashtodockContainer .running2:hover .app-well-app-running-dot {
+                 background: rgb(245,250,255);
+               }
+               #dashtodockContainer .running3 .app-well-app-running-dot {
+                 width: 24px;
+                 height: 2.5px;
+                 background: rgb(215,220,225);
+               }
+               #dashtodockContainer .running3:hover .app-well-app-running-dot {
+                 background: rgb(245,250,255);
+               }
+               #dashtodockContainer .running4 .app-well-app-running-dot {
+                 width: 32px;
+                 height: 2.5px;
+                 background: rgb(215,220,225);
+               }
+               #dashtodockContainer .running4:hover .app-well-app-running-dot {
+                 background: rgb(245,250,255);
+               }
+
+               /*markeringar sväva etc*/
+             #dashtodockContainer .app-well-app {
+               box-shadow:inset rgba(0,0,0,.0) 0px -4px 0px;
+               padding-bottom: 0px;
+             }
+
+               #dashtodockContainer .app-well-app:hover {
+                 box-shadow:inset rgba(155,160,165,1) 0px -4px 0px;
+               }
+               #dashtodockContainer .app-well-app:active {
+                 box-shadow:inset rgba(205,210,215,.9) 0px -4px 0px;
+               }
+             .dash-label { /*hackan: dash/docken titlar */
+               border-radius: 6px;
+               padding: 4px 12px;
+               color: #eee;
+               font-weight: 400;
+               font-size: 1.1em;
+               text-shadow: 0 0 3px rgba(0,0,0,1);
+               background-color: rgba(45,50,55,.95);
+               border: 0px none rgba(185,190,195,.0);
+               box-shadow: 0 0 2px 2px rgba(0,0,0,.2);
+               text-align: center;
+               -x-offset: -5px; }
+               .bottom .dash-label, .top .dash-label {
+                 -y-offset: 0px;
+                 -x-offset: 0; }
+
+                 .show-apps .overview-icon { /*lådan för showapps*/
+
+                   background-gradient-start: rgba(0,0,0,.7);
+                   background-gradient-end: rgba(0,0,0,.0);
+                   background-gradient-direction: radial;
+                   border: none;
+                   border-radius: 50px;
+                   margin-right: 5px;
+                 }
+                 .show-apps .show-apps-icon { /* hackan: show apps visa appar-knappen*/
+                   color: rgb(220,220,230);
+                   icon-shadow: 0 0 5px rgba(0,0,0,1);
+                   border:outset 1px solid rgba(25,30,35,.8);
+                   border-radius: 50px;
+                   background-gradient-start: rgba(75,80,85,1);
+                   background-gradient-end: rgba(45,50,55,1);
+                   background-gradient-direction: vertical;
+                  }
+                  .show-apps:hover .overview-icon {
+                    background-gradient-start: rgba(0,0,0,1);
+                    background-gradient-end: rgba(0,0,0,.0);
+                    background-gradient-direction: radial;
+                  }
+                  .show-apps:checked .show-apps-icon {
+                    color: rgb(225,230,235);
+                    background-gradient-start: rgba(85,90,95,1);
+                    background-gradient-end: rgba(65,70,75,1);
+                    background-gradient-direction: vertical;
+                  }
+                  .show-apps:checked .overview-icon,
+                  .show-apps:active .overview-icon {
+                    box-shadow: none;
+                  }
+
+       /* ::: ikonnät ::: */
+.icon-grid {
+  spacing: 20px;
+  -shell-grid-horizontal-item-size: 136px;
+  -shell-grid-vertical-item-size: 136px;
+ }
+
+ .icon-grid > .overview-icon {
+   background-gradient-start: rgba(0,0,0,.8);
+   background-gradient-end: rgba(50,50,50,0);
+   background-gradient-direction: radial;
+  }
+  /* FIXME:
+  fina nya knappar
+   */
+/* ::: knapparna ofta använda/alla ::: */
+  .app-view-controls {
+    border: 1px solid rgba(0,0,0,.6);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    padding: 270px; /* gör avskiljaren lika bred som avskiljaren för programmappar */
+    padding-top: 15px; /* padding på sidorna verkar ändra sig när man justerar padding upp och ner...*/
+    padding-bottom: 0px;
+    box-shadow:inset 0 1px 0 rgba(250,250,250,.2);
+   }
+
+  .app-view-control {
+    background: rgba(33,38,45,.9);
+    border: .5px solid rgba(240,240,240,.1);
+    box-shadow: inset 0 0 3px rgba(0,0,0,.5);
+    color: rgb(200,200,200);
+    font-weight: 400;
+    padding: 4px;
+    padding-left: 30px;
+    padding-right: 30px;
+   }
+ .app-view-control:first-child {
+    border-right-width: 0;
+    border-radius: 6px 0 0 6px;
+  }
+  .app-view-control:first-child:hover,
+  .app-view-control:first-child:checked {
+    box-shadow: -3px 0 5px rgba(0,0,0,.3);
+  }
+
+ .app-view-control:last-child {
+   border-left-width: 0;
+   border-radius: 0 6px 6px 0;
+ }
+ .app-view-control:last-child:hover,
+ .app-view-control:last-child:checked {
+   box-shadow: 3px 0 5px rgba(0,0,0,.3);
+ }
+    .app-view-control:hover {
+      background: rgb(145,145,145);
+      box-shadow: 0 0 5px rgba(0,0,0,0);
+      color: white;
+  }
+    .app-view-control:focus {
+      background: rgb(140,140,140);
+
+     }
+     .app-view-control:checked {
+       background: rgb(210,210,210);
+       box-shadow: 0 0 5px rgba(0,0,0,0);
+       border: .5px solid rgba(240,240,240,.4);
+       color: #222;
+      }
+
+/* FIXME: (6)
+gör "plattan" i ikonnätet lite mindre så att indikatorn alltid sysns
+
+Fett!
+|- margin mixat med padding på plattan och margin på StIcon :-D
+
+Intressant grej: Utan ramen så avrbyts texte tidigt :-/
+ */
+      .icon-grid .app-well-app .overview-icon,
+      .grid-search-result .overview-icon { /*Försöker lägga en skugga bara banätetkom apparna som inte är markerade*/
+        border-radius: 6px !important;
+        text-shadow: 0 1px 2px rgba(0,0,0,.8);
+        font-weight: 400;
+        font-size: 1.1em;
+        background-gradient-start: rgba(0,0,0,.7);
+        background-gradient-end: rgba(50,50,50,0);
+        background-gradient-direction: radial;
+        /* för att indikatorn täcks annars */
+        margin-bottom: 6px;
+        spacing: 6px;
+        padding-bottom: 2px;
+        border: .5px solid rgba(240,240,240,.0);
+
+        /*icon-shadow: 0 0 5px rgba(0,0,0,0.1);*/
+      }
+      .icon-grid .app-well-app StIcon {
+        /* justera ner lite så att skuggan inte bryts av */
+        margin-top: 6px;
+      }
+
+      /*försök att få bort skugor under transit - .show-apps:checked*/
+      /*.show-apps:checked > .overview-icon {
+        icon-shadow: 0 0 20px rgba(0,0,0,1);;
+      }*/
+      .icon-grid .app-well-app:hover .overview-icon,
+      .icon-grid .app-well-app:active .overview-icon,
+      .grid-search-result:hover .overview-icon,
+      .grid-search-result:active .overview-icon {
+        background: rgba(215,220,225,.9);
+        background-gradient-direction: none; /*blir tillsammans med box-shadow CP*/
+        text-shadow: 0 1px 1px rgba(255,255,255,.3);
+        color: #333;
+        border: .5px solid rgba(235,240,245,.55);
+        box-shadow: 0 0 7px 7px rgba(0,0,0,.3);
+      }
+      .icon-grid .app-well-app:focus:hover .overview-icon,
+      .icon-grid .app-well-app:focus:active .overview-icon,
+      .grid-search-result:focus:hover .overview-icon,
+      .grid-search-result:focus:active .overview-icon {
+        background: rgba(230,235,240,95);
+        background-gradient-direction: none; /*blir tillsammans med box-shadow CP*/
+        border: 1px solid rgba(215,220,225,.2);
+        box-shadow: 0 0 7px 7px rgba(0,0,0,.3);
+        text-shadow: 0 1px 1px rgba(255,255,255,.3);
+        color: #333;
+      }
+      /* *** För att det segar ner Överblick så mycket att rita skuggor på alla från början så kör vi gamla hacket med bakgrundsgradient och riktiga ikon-skuggor på resten  *** */
+      .icon-grid .app-well-app:hover StIcon,
+      .icon-grid .app-well-app:focus StIcon {
+        icon-shadow: 0 0 3px 3px rgba(0,0,0,.3);
+      }
+      .icon-grid .app-well-app:focus .overview-icon,
+      .icon-grid .app-well-app:selected .overview-icon,
+      .grid-search-result:focus .overview-icon,
+      .grid-search-result:selected .overview-icon {
+        background: rgba(215,220,225,95);
+        background-gradient-direction: none;
+        text-shadow: 0 1px 1px rgba(250,250,250,.3);
+        color: #222;
+        border: 1px solid rgba(230,235,240,.2);
+        box-shadow: 0 0 7px 7px rgba(0,0,0,.3);
+      }
+
+      .app-well-app { /*behåller för om du vill dra på med mer skugga på ikoner i dock och nät*/
+        border: 1px solid transparent;
+      }
+
+      /* FIXME: (4)
+      kör samma grej här som att bläddra sidor
+      både running-dot och program-mappar
+
+      Gör plattan till .overview-icon kortare så att den inte täcker denna.. kolla där uppe.
+
+       */
+      .icon-grid .app-well-app-running-dot {
+        width: 30px;
+        height: 3px;
+        margin-bottom: 0px; /* kan ej vara negativ, försvinner då*/
+        border-radius: 3px;
+        /* ::: hål:::*/
+        background-color: rgba(15,20,25,1);
+        border: .5px solid rgba(240,240,240,.25);
+        box-shadow:inset 0 0 2px rgba(0,0,0,.5);
+        /* ::: ipluggade :::
+        background-color: rgba(200,200,200,1);
+        box-shadow:outset 0 0px 5px rgba(0,0,0,1);
+        border: .5px solid rgba(235,235,235,.5);
+*/
+       }
+       .icon-grid .app-well-app:hover .app-well-app-running-dot {
+         background-color: rgba(220,220,220,1);
+         box-shadow:outset 0 2px 5px rgba(0,0,0,1);
+         border: .5px solid rgba(0,0,0,.55);
+       }
+
+/* FIXME: (5)
+kör samma utseende på mappar som på .overview-controls
+ */
+       /*program-mappar*/
+       .icon-grid .app-well-app.app-folder > .overview-icon {
+         background-gradient-direction: none;
+         color: #eee;
+         background: rgba(33,38,45,.9);
+         box-shadow: inset 0 0 5px rgba(0,0,0,.5) !important;
+         border: .5px solid rgba(240,240,240,.1);
+
+         /*
+         background-color: rgba(150,150,150,.3);
+         border: .5px solid rgba(240,240,240,.2);
+         border-radius: 2px;
+         box-shadow: inset 0 0 2px rgba(0,0,0,.8);*/
+       }
+       .icon-grid .app-well-app.app-folder > .overview-icon StIcon {
+         /* kompensera tillbaka mot padding i ikonnätet, annars så blir ikonerna i miniatyrmapparna missformade */
+         margin-top: 0px;
+       }
+
+       .icon-grid .app-well-app.app-folder:hover > .overview-icon,
+       .icon-grid .app-well-app.app-folder:active > .overview-icon {
+         color: #fff;
+         border: .5px solid rgba(240,240,240,.4);
+       }
+
+
+       .icon-grid .app-well-app.app-folder:focus > .overview-icon, .icon-grid .app-well-app.app-folder:checked > .overview-icon {
+         background: rgba(30,35,40,.3);
+         box-shadow:inset 0 0 .5px rgba(255,255,255,.6);
+         color: #ccc;
+         text-shadow: 0 0 3px rgba(0,0,0,.7);
+         border: .5px solid rgba(240,240,240,.4);
+        }
+
+       /*öppnad program-mapp*/
+       /* FIXME:
+       programmappar. Av någon anledning så blir/känns bakgrunden så mörk. Går tillbaka till Overview-ramfärg och ökar med åtta på samtliga.
+
+       Tar även bort "lådan" och lägger istället till en separator-linje.
+
+        */
+       .app-folder-popup {
+         -arrow-border-radius: 6px;
+         -arrow-background-color: rgba(25,30,35,.0);
+         -arrow-border-color: rgba(240,240,240,.0);
+         -arrow-border-width: .5px;
+         -arrow-base: 0;
+         -arrow-rise: 0;
+       }
+
+     .app-folder-popup-bin {
+       padding: 0px; /*annars så får vi en scrollbar på vissa*/
+     }
+
+     .app-folder-icon {
+       padding: 5px;
+       spacing-rows: 5px;
+       spacing-columns: 5px; }
+
+     .page-indicator {
+       padding: 15px 20px; } /* jag ger sid-indikatorerna lite djup */
+       .page-indicator .page-indicator-icon {
+         width: 10px;
+         height: 10px;
+       /*background-image: url(common-assets/misc/page-indicator-inactive.svg);*/
+       background-color: rgba(25,30,35,.9);
+       border: .5px solid rgba(240,240,240,.1);
+       border-radius: 10px;
+       box-shadow: inset 0 0 2px rgba(0,0,0,.5);
+      }
+       .page-indicator:hover .page-indicator-icon {
+       /*background-image: url(common-assets/misc/page-indicator-hover.svg);*/
+         background: rgb(145,145,145);
+         box-shadow: 0 0 5px rgba(0,0,0,1);
+      }
+       .page-indicator:active .page-indicator-icon {
+       /*background-image: url(common-assets/misc/page-indicator-active.svg);*/
+       background: rgb(140,140,140);
+      }
+       .page-indicator:checked .page-indicator-icon, .page-indicator:checked:active {
+       /*background-image: url(common-assets/misc/page-indicator-checked.svg);*/
+       background: rgb(175,175,175);
+       box-shadow: 0 0 5px rgba(0,0,0,1);
+      }
+
+     .app-well-app > .overview-icon.overview-icon-with-label,
+     .grid-search-result .overview-icon.overview-icon-with-label {
+       /* kategoriserade program (lådor i nätet) */
+       padding: 10px 8px 5px 8px;
+       spacing: 4px;
+     }
+
+/*inte opt-checkad nedåt*/
+
+     .search-display > StBoxLayout,
+     .all-apps,
+     .frequent-apps > StBoxLayout {
+       padding: 0px 88px 10px 88px; }
+
+     .search-statustext, .no-frequent-applications-label {
+       font-size: 2em;
+       font-weight: bold;
+       color: rgba(0,0,0,.5); }
+
+     .url-highlighter {
+       link-color: #a9caf1; }
+
+     .notification-banner,
+     .notification-banner:hover,
+     .notification-banner:focus {
+       font-size: 1em;
+       font-family: Lato, NimbusSans, Cantarell;
+       width: 34em;
+       margin: 10px;
+       padding: 5px;
+       color: #eee;
+       background-color: rgba(45,50,55,.95);
+       border: 1px solid transparent;
+       box-shadow: 0 2px 10px rgba(0,0,0,1);
+     }
+
+     .notification-banner .message-icon-bin > StIcon,
+     .notification-banner:hover .message-icon-bin > StIcon,
+     .notification-banner:focus .message-icon-bin > StIcon {
+       color: #eee;
+       icon-shadow: 0 0 3px black;
+     }
+       .notification-banner .notification-icon,
+       .notification-banner:hover .notification-icon,
+       .notification-banner:focus .notification-icon {
+         color: #fff;
+         padding: 5px; }
+       .notification-banner .notification-content,
+       .notification-banner:hover .notification-content,
+       .notification-banner:focus .notification-content {
+         color: #fff;
+         padding: 5px;
+         spacing: 5px; }
+       .notification-banner .secondary-icon,
+       .notification-banner:hover .secondary-icon,
+       .notification-banner:focus .secondary-icon {
+         color: #eee;
+         icon-size: 1.09em; }
+
+         /*det här är bakgrunden till området där knapparna är*/
+       .notification-banner .notification-actions,
+       .notification-banner:hover .notification-actions,
+       .notification-banner:focus .notification-actions {
+         color: #fff;
+         background: transparent;
+         padding: 0px;
+         spacing: 0px;
+         margin: 0px;
+       }
+       /*knapparna*/
+       /* samla knapparna till de andra. De ska ju se likadana ut iaf
+
+       .notification-banner .notification-button {
+         background: rgba(40,45,65,1);
+         border: 1px solid rgba(0,0,0,.8);
+         border-radius: 3px;
+         box-shadow: 0 0 5px rgba(0,0,0,.8);
+         font-weight: bold;
+        }
+        .notification-banner .notification-button:hover {
+          background: rgb(145,145,145);
+          border: 1px solid rgba(0,0,0,.8);
+          color: white;
+        }
+        .notification-banner .notification-button:active {
+          background: rgb(30,150,220);
+          border: 1px solid rgba(0,0,0,.8);
+          color: white;
+          box-shadow: 0 0 5px rgba(0,0,0,.3);
+        }
+        .notification-banner .notification-button:focus {
+          background: rgb(175,175,175);
+          border: 1px solid rgba(0,0,0,.8);
+          color: #222;
+        }
+        .notification-banner .notification-button:focus:hover {
+          background: rgb(145,145,145);
+          border: 1px solid rgba(0,0,0,.8);
+          color: white !important;
+        }
+        .notification-banner .notification-button:focus:active {
+          background: rgb(30,150,220);
+          border: 1px solid rgba(0,0,0,.8);
+          color: white;
+          box-shadow: 0 0 5px rgba(0,0,0,.3);
+        }
+       .notification-banner .notification-button:first-child {
+         }
+
+       .notification-banner .notification-button:last-child {
+         }
+
+       .notification-banner:hover .notification-button:first-child {
+         }
+
+       .notification-banner:hover .notification-button:last-child {
+         }
+
+       .notification-banner:focus .notification-button:first-child {
+         }
+
+       .notification-banner:focus .notification-button:last-child {
+          }
+
+          */
+     /*ska försöka tweak:a till att popup-notifikationer inte följer färgerna för meddelanden*/
+     /*.notification-banner .message-title {
+       color: #444;
+     }*/
+     .notification-banner:hover .message-title,
+     .notification-banner:focus .message-title {
+       color: #fff;
+     }
+     /*
+     .notification-banner .message-content {
+       color: #555;
+     }*/
+     .notification-banner:hover .message-content,
+     .notification-banner:focus .message-content {
+       color: #eee;
+     } /*shit vad jag är bra :-D */
+
+     .secondary-icon {
+       icon-size: 1.09em; }
+
+     .chat-body {
+       spacing: 5px; }
+
+     .chat-response {
+       margin: 5px;
+     }
+
+     .chat-log-message {
+       color: #fff; }
+
+     .chat-new-group {
+       padding-top: 1em; }
+
+     .chat-received {
+       padding-left: 4px; }
+       .chat-received:rtl {
+         padding-left: 0px;
+         padding-right: 4px; }
+
+     .chat-sent {
+       padding-left: 18pt;
+       color: rgb(145,145,145);
+      }
+       .chat-sent:rtl {
+         padding-left: 0;
+         padding-right: 18pt; }
+
+     .chat-meta-message {
+       padding-left: 4px;
+       font-size: 9pt;
+       font-weight: 400;
+       color: rgba(250, 250, 250, .6); }
+       .chat-meta-message:rtl {
+         padding-left: 0;
+         padding-right: 4px; }
+
+     .subscription-message {
+       font-style: italic; }
+
+     .hotplug-transient-box {
+       spacing: 6px;
+       padding: 2px 72px 2px 12px;
+     }
+
+     .hotplug-notification-item {
+       padding: 2px 10px; }
+       .hotplug-notification-item:focus {
+         padding: 2px 10px; }
+
+     .hotplug-notification-item-icon {
+       icon-size: 24px;
+       padding: 2px 5px; }
+
+     .hotplug-resident-box {
+       spacing: 8px; }
+
+     .hotplug-resident-mount {
+       spacing: 8px;
+       border-radius: 4px; }
+       .hotplug-resident-mount:hover {
+         background-color: rgba(56, 60, 74, .3); }
+
+     .hotplug-resident-mount-label {
+       color: inherit;
+       padding-left: 6px; }
+
+     .hotplug-resident-mount-icon {
+       icon-size: 24px;
+       padding-left: 6px; }
+
+     .hotplug-resident-eject-icon {
+       icon-size: 16px; }
+
+     .hotplug-resident-eject-button {
+       padding: 7px;
+       border-radius: 5px;
+       color: pink; }
+
+     .legacy-tray {
+       background-color: rgba(45,50,55,.95);
+      }
+       .legacy-tray:ltr {
+         border-radius: 0 2px 0 0;
+         border-left-width: 0; }
+       .legacy-tray:rtl {
+         border-radius: 2px 0 0 0;
+         border-right-width: 0; }
+
+     .legacy-tray-handle,
+     .legacy-tray-icon {
+       icon-shadow: 0 0 10px white !important;
+       padding: 6px; }
+       .legacy-tray-handle StIcon,
+       .legacy-tray-icon StIcon {
+         icon-size: 24px; } /*hoppa*/
+       .legacy-tray-handle:hover, .legacy-tray-handle:focus,
+       .legacy-tray-icon:hover,
+       .legacy-tray-icon:focus {
+         background-color: rgba(211, 218, 227,.1); }
+
+     .legacy-tray-icon-box { /*har försökt med icon-shadow och att lägga till bakgrunder, men till föga önskat resultat. Lämnar.*/
+       spacing: 12px; }
+       .legacy-tray-icon-box:ltr {
+         padding-left: 12px; }
+       .legacy-tray-icon-box:rtl {
+         padding-right: 12px; }
+       .legacy-tray-icon-box StButton {
+         width: 24px;
+         height: 24px; }
+
+     .masterslider.smaller .masterlabel,
+     .masterslider.smaller .slider {
+       min-width: 155px; }
+
+     .magnifier-zoom-region {
+       border: 2px solid rgb(145,145,145); }
+       .magnifier-zoom-region.full-screen {
+         border-width: 0; }
+
+     #keyboard {
+       background-color: rgba(53, 57, 69, .95);
+       border-width: 0;
+       border-top-width: 1px;
+       border-color: rgba(0, 0, 0, .2); }
+
+     .keyboard-layout {
+       spacing: 10px;
+       padding: 10px; }
+
+     .keyboard-row {
+       spacing: 15px; }
+
+     .keyboard-key {
+       min-height: 2em;
+       min-width: 2em;
+       font-size: 14pt;
+       font-weight: bold;
+       border-radius: 3px;
+       box-shadow: none;
+       text-shadow: 0 1px rgba(64, 69, 82, 0);
+       color: #BAC3CF;
+       border: 1px solid rgba(26, 28, 34, .35);
+       background-color: rgba(102, 109, 132, .35);
+       box-shadow: inset 0 1px rgba(0, 0, 0, .05); }
+       .keyboard-key:hover {
+         text-shadow: 0 1px rgba(64, 69, 82, 0);
+         color: #BAC3CF;
+         border: 1px solid rgba(26, 28, 34, .35);
+         background-color: rgba(119, 127, 151, .45);
+         box-shadow: inset 0 1px rgba(0, 0, 0, .05); }
+       .keyboard-key:active, .keyboard-key:checked {
+         text-shadow: 0 1px rgba(64, 69, 82, 0);
+         color: #ffffff;
+         border: 1px solid rgba(26, 28, 34, .35);
+         background-color: rgb(145,145,145);
+         box-shadow: inset 0 1px rgba(82, 148, 226, .05); }
+       .keyboard-key:grayed {
+         text-shadow: 0 1px rgba(64, 69, 82, 0);
+         color: #5d626e;
+         border: 1px solid rgba(26, 28, 34, .35);
+         background-color: rgba(102, 109, 132, .2);
+         box-shadow: inset 0 1px rgba(0, 0, 0, .05); }
+
+     .keyboard-subkeys {
+       color: #BAC3CF;
+       padding: 5px;
+       -arrow-border-radius: 2px;
+       -arrow-background-color: rgba(53, 57, 69, .95);
+       -arrow-border-width: 1px;
+       -arrow-border-color: rgba(0, 0, 0, .4);
+       -arrow-base: 20px;
+       -arrow-rise: 10px;
+       -boxpointer-gap: 5px; }
+
+     .candidate-popup-content {
+       padding: .5em;
+       spacing: .3em;
+       color: #BAC3CF;
+       font-size: 1.15em; }
+
+     .candidate-index {
+       padding: 0 .5em 0 0;
+       color: #d8dde4; }
+
+     .candidate-box {
+       padding: .3em .5em .3em .5em;
+       border-radius: 2px;
+       color: #BAC3CF; }
+       .candidate-box:selected, .candidate-box:hover {
+         background-color: rgb(145,145,145);
+         color: #ffffff; }
+
+     .candidate-page-button-box {
+       height: 2em; }
+       .vertical .candidate-page-button-box {
+         padding-top: .5em; }
+       .horizontal .candidate-page-button-box {
+         padding-left: .5em; }
+
+     .candidate-page-button {
+       padding: 4px; }
+
+     .candidate-page-button-previous {
+       border-radius: 2px 0px 0px 2px;
+       border-right-width: 0; }
+
+     .candidate-page-button-next {
+       border-radius: 0px 2px 2px 0px; }
+
+     .candidate-page-button-icon {
+       icon-size: 1em; }
+
+     .framed-user-icon {
+       background-size: contain;
+       border: 0px solid transparent;
+       color: #D3DAE3;
+       border-radius: 2px; }
+       .framed-user-icon:hover {
+         border-color: transparent;
+         color: white; }
+
+     .login-dialog-banner-view {
+       padding-top: 24px;
+       max-width: 23em; }
+
+     .login-dialog {
+       border: none;
+       background-color: transparent; }
+       .login-dialog .modal-dialog-button-box {
+         spacing: 3px; }
+       .login-dialog .modal-dialog-button {
+         padding: 3px 18px;
+     }
+         .login-dialog .modal-dialog-button:default {
+           text-shadow: 0 0 0 rgba(0,0,0,0);
+           color: #222;
+           background-color: rgb(175,175,175);
+           border: 1px solid #8b8e89;
+           box-shadow: 0 0 5px rgba(0,0,0,.5);
+         }
+           .login-dialog .modal-dialog-button:default:hover, .login-dialog .modal-dialog-button:default:focus {
+             text-shadow: 0 1px rgba(0,0,0,.5);
+             color: white;
+             background-color: rgb(145,145,145);
+             border: 1px solid rgba(0,0,0,.6);
+             box-shadow:0 0 5px rgba(0,0,0,.5); }
+           .login-dialog .modal-dialog-button:default:active {
+             box-shadow: 0 0 5px rgba(0,0,0,.4);
+           }
+           .login-dialog .modal-dialog-button:default:insensitive {
+             text-shadow: 0 0 1px rgba(200,200,200,0);
+             color: rgba(200,200,200,.35);
+             border: 1px solid rgba(0,0,0,.4);
+             background-color: rgba(200,200,257,.1);
+             box-shadow: 0 0 5px rgba(0,0,0,.9);
+           }
+
+     .login-dialog-logo-bin {
+       padding: 24px 0px; }
+
+     .login-dialog-banner {
+       color: #9ca9ba; }
+
+     .login-dialog-button-box {
+       spacing: 5px; }
+
+     .login-dialog-message-warning {
+       color: #F27835; }
+
+     .login-dialog-message-hint {
+       padding-top: 0;
+       padding-bottom: 20px; }
+
+     .login-dialog-user-selection-box {
+       padding: 100px 0px; }
+       .login-dialog-user-selection-box .login-dialog-not-listed-label {
+         padding-left: 2px; }
+         .login-dialog-not-listed-button:focus .login-dialog-user-selection-box .login-dialog-not-listed-label,
+         .login-dialog-not-listed-button:hover .login-dialog-user-selection-box .login-dialog-not-listed-label {
+           color: #BAC3CF; }
+
+     .login-dialog-not-listed-label {
+       font-size: 90%;
+       font-weight: bold;
+       color: #62758e;
+       padding-top: 1em; }
+
+     .login-dialog-user-list-view {
+       -st-vfade-offset: 1em; }
+
+     .login-dialog-user-list {
+       spacing: 12px;
+       padding: .2em;
+       width: 23em; }
+       .login-dialog-user-list:expanded .login-dialog-user-list-item:focus {
+         background-color: rgb(145,145,145);
+         color: #ffffff; }
+       .login-dialog-user-list:expanded .login-dialog-user-list-item:logged-in {
+         border-right: 2px solid rgb(145,145,145); }
+
+     .login-dialog-user-list-item {
+       border-radius: 5px;
+       padding: .2em;
+       color: #62758e; }
+       .login-dialog-user-list-item:ltr {
+         padding-right: 1em; }
+       .login-dialog-user-list-item:rtl {
+         padding-left: 1em; }
+       .login-dialog-user-list-item:hover {
+         background-color: rgb(145,145,145);
+         color: #ffffff; }
+       .login-dialog-user-list-item .login-dialog-timed-login-indicator {
+         height: 2px;
+         margin: 2px 0 0 0;
+         background-color: #BAC3CF; }
+       .login-dialog-user-list-item:focus .login-dialog-timed-login-indicator {
+         background-color: #ffffff; }
+
+     .login-dialog-username,
+     .user-widget-label {
+       color: #eee;
+       font-size: 120%;
+       font-weight: bold;
+       text-align: left;
+       padding-left: 15px; }
+
+     .user-widget-label:ltr {
+       padding-left: 18px; }
+
+     .user-widget-label:rtl {
+       padding-right: 18px; }
+
+     .login-dialog-prompt-layout {
+       padding-top: 24px;
+       padding-bottom: 12px;
+       spacing: 8px;
+       width: 23em; }
+
+     .login-dialog-prompt-label {
+       color: #7e8fa5;
+       font-size: 110%;
+       padding-top: 1em; }
+
+     .login-dialog-session-list-button StIcon {
+       icon-size: 1.25em; }
+
+     .login-dialog-session-list-button {
+       color: #62758e; }
+       .login-dialog-session-list-button:hover, .login-dialog-session-list-button:focus {
+         color: #BAC3CF; }
+       .login-dialog-session-list-button:active {
+         color: #394351; }
+
+     .screen-shield-arrows {
+       padding-bottom: 3em; }
+
+     .screen-shield-arrows Gjs_Arrow {
+       color: white;
+       width: 80px;
+       height: 48px;
+       -arrow-thickness: 12px;
+       -arrow-shadow: 0 1px 1px rgba(0, 0, 0, .4); }
+
+     .screen-shield-clock {
+       color: white;
+       text-shadow: 0px 1px 2px rgba(0, 0, 0, .6);
+       font-weight: bold;
+       text-align: center;
+       padding-bottom: 1.5em; }
+
+     .screen-shield-clock-time {
+       font-size: 72pt;
+       text-shadow: 0px 2px 2px rgba(0, 0, 0, .4); }
+
+     .screen-shield-clock-date {
+       font-size: 28pt; }
+
+     .screen-shield-notifications-container {
+       spacing: 6px;
+       width: 30em;
+       background-color: transparent;
+       max-height: 500px; }
+       .screen-shield-notifications-container .summary-notification-stack-scrollview {
+         padding-top: 0;
+         padding-bottom: 0; }
+       .screen-shield-notifications-container .notification,
+       .screen-shield-notifications-container .screen-shield-notification-source {
+         padding: 12px 6px;
+         border: 1px solid rgba(186, 195, 207, .2);
+         background-color: rgba(53, 57, 69, .45);
+         color: #BAC3CF;
+         border-radius: 4px; }
+       .screen-shield-notifications-container .notification {
+         margin-right: 15px; }
+
+     .screen-shield-notification-label {
+       font-weight: bold;
+       padding: 0px 0px 0px 12px; }
+
+     .screen-shield-notification-count-text {
+       padding: 0px 0px 0px 12px; }
+
+     #panel .lock-screen {
+       background: rgba(53, 255, 69, 0) !important; } /*hackan: this is where that little thing was hiding*/
+
+
+
+     .screen-shield-background {
+       background-gradient-start: rgba(30,50,110,.6);
+       background-gradient-end: rgba(30,50,100,.75);
+
+       background-gradient-direction: radial;
+       box-shadow:inset 0px 2px 4px rgba(0, 0, 0, .4); }
+
+     #lockDialogGroup {
+       background: yellow !important; }
+
+     #screenShieldNotifications StButton#vhandle, #screenShieldNotifications StButton#hhandle {
+       background-color: rgba(56, 60, 74, .3); }
+       #screenShieldNotifications StButton#vhandle:hover, #screenShieldNotifications StButton#vhandle:focus, #screenShieldNotifications StButton#hhandle:hover, #screenShieldNotifications StButton#hhandle:focus {
+         background-color: rgba(56, 60, 74, .5); }
+       #screenShieldNotifications StButton#vhandle:active, #screenShieldNotifications StButton#hhandle:active {
+         background-color: rgba(82, 148, 226, .5); }
+
+     #LookingGlassDialog {
+       spacing: 4px;
+       padding: 8px 8px 10px 8px;
+       background-color: rgba(45,50,55,1);
+       border-radius: 3px;
+       border: none;
+       color: #eee;
+       box-shadow: 0 2px 10px rgba(0,0,0,.8);
+     }
+       #LookingGlassDialog > #Toolbar {
+         padding: 3px;
+         border: none;
+         background-color: transparent;
+         border-radius: 0px; }
+       #LookingGlassDialog .labels {
+         spacing: 4px; }
+       #LookingGlassDialog .notebook-tab {
+         -natural-hpadding: 12px;
+         -minimum-hpadding: 6px;
+         font-weight: bold;
+         color: rgb(200,200,200);
+         transition-duration: 100ms;
+         padding-left: .3em;
+         padding-right: .3em; }
+         #LookingGlassDialog .notebook-tab:hover {
+           color: rgb(145,145,145);
+           text-shadow: black 0px 2px 2px; }
+         #LookingGlassDialog .notebook-tab:selected {
+           border-bottom-width: 0px;
+           color: rgb(175,175,175);
+           text-shadow: black 0px 2px 2px; }
+       #LookingGlassDialog StBoxLayout#EvalBox {
+         padding: 4px;
+         spacing: 4px; }
+       #LookingGlassDialog StBoxLayout#ResultsArea {
+         spacing: 4px; }
+
+     .lg-dialog StEntry {
+       selection-background-color: rgb(145,145,145);
+       selected-color: #ffffff;
+       color: #BAC3CF;
+       background-color: rgba(200,200,200,.3);
+       box-shadow: 0 2px 10px rgba(0,0,0,.8);
+       border: none;
+     }
+       .lg-dialog StEntry:focus {
+         color: #222;
+         font-weight: bold;
+         caret-color: #222;
+         background-color: rgb(175,175,175);
+         box-shadow: 0 2px 10px rgba(0,0,0,.8);
+         selection-background-color: white;
+         selected-color: rgb(175,175,175);
+       }
+
+     .lg-dialog .shell-link {
+       color: #19caf1; }
+       .lg-dialog .shell-link:hover {
+         color: #15e5f8; }
+
+     .lg-completions-text {
+       font-size: .9em;
+       font-style: italic; }
+
+     .lg-obj-inspector-title {
+       spacing: 4px; }
+
+     .lg-obj-inspector-button {
+       border: 1px solid gray;
+       padding: 4px;
+       border-radius: 4px; }
+       .lg-obj-inspector-button:hover {
+         border: 1px solid #ffffff; }
+
+     #lookingGlassExtensions {
+       padding: 4px; }
+
+     .lg-extensions-list {
+       padding: 4px;
+       spacing: 6px; }
+
+     .lg-extension {
+       border: 1px solid rgba(0, 0, 0, .7);
+       border-radius: 2px;
+       background-color: rgba(53, 57, 69, .95);
+       padding: 4px; }
+
+     .lg-extension-name {
+       font-weight: bold; }
+
+     .lg-extension-meta {
+       spacing: 6px; }
+
+     #LookingGlassPropertyInspector {
+       background: rgba(0, 0, 0, .7);
+       border: 1px solid grey;
+       border-radius: 2px;
+       padding: 6px; }
+
+
+     /* ** Apps Menu ** */
+     .apps-menu .popup-menu-item {
+       padding: 5px;
+       margin: 3px;
+       spacing: 10px;
+     }
+     StBin.corner:hover {
+       background: rgba(170,170,170,.2) !important;
+       border-radius: 50px !important;
+       /*inga speciella instlällningar. Tänkte att jag kunde utnyttja för rundade hörn, men icke*/
+     }
+     #MetaBackgroundActor {
+     }
+
+     /*#uiGroup backgroundGroup.backgroundActor {
+       padding: 20px !important;
+     }*/
